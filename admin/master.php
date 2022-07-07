@@ -8,49 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
     <style>
-        body {
-            background-color: #fbfbfb;
-        }
-
-        @media (min-width: 991.98px) {
-            main {
-                padding-left: 240px;
-            }
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            padding: 58px 0 0;
-            /* Height of navbar */
-            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-            width: 240px;
-            z-index: 600;
-        }
-
-        @media (max-width: 991.98px) {
-            .sidebar {
-                width: 100%;
-            }
-        }
-
-        .sidebar .active {
-            border-radius: 5px;
-            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-        }
-
-        .sidebar-sticky {
-            position: relative;
-            top: 0;
-            height: calc(100vh - 48px);
-            padding-top: 0.5rem;
-            overflow-x: hidden;
-            overflow-y: auto;
-            /* Scrollable contents if viewport is shorter than content. */
+        .badge a {
+            color: white;
+            text-decoration: none;
         }
     </style>
 
@@ -97,12 +61,56 @@
     <!--Main layout-->
     <main style="margin-top: 58px;">
         <div class="container p-4">
-            <h1>Master Page</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore beatae vero porro, nemo eius totam
-                perferendis blanditiis, reiciendis dignissimos corporis harum alias laborum esse non qui molestiae
-                veniam? Exercitationem quod repudiandae natus ea commodi consequuntur quis excepturi animi pariatur
-                ipsum!
-            </p>
+            <h3 class="mb-3">Master Page</h3>
+
+            <!-- Table -->
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama Kamera</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Jumlah</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Kamera DSLR</td>
+                        <td>Rp.100.000/hari</td>
+                        <td>4</td>
+                        <td>
+                            <span class="badge bg-success"><a href="">Detail</a></span>
+                            <span class="badge bg-warning"><a href="">Edit</a></span>
+                            <span class="badge bg-danger"><a href="">Hapus</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Kamera Mirrorless</td>
+                        <td>Rp.300.000/hari</td>
+                        <td>20</td>
+                        <td>
+                            <span class="badge bg-success"><a href="">Detail</a></span>
+                            <span class="badge bg-warning"><a href="">Edit</a></span>
+                            <span class="badge bg-danger"><a href="">Hapus</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Kamera Action</td>
+                        <td>Rp.500.000/hari</td>
+                        <td>30</td>
+                        <td>
+                            <span class="badge bg-success"><a href="">Detail</a></span>
+                            <span class="badge bg-warning"><a href="">Edit</a></span>
+                            <span class="badge bg-danger"><a href="">Hapus</a></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
     </main>
     <!--Main layout-->
