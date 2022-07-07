@@ -3,8 +3,7 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Product</h1>
 
-<!-- DataTales Example -->
-<a href="" class="btn btn-primary mb-3"><i class="fa-solid fa-plus"></i> Add new product</a>
+<a href="./add_product.php" class="btn btn-primary mb-3"><i class="fa-solid fa-plus"></i> Add new product</a>
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
