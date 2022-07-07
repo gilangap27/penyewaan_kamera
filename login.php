@@ -4,9 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact</title>
+    <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <style>
+        .forgot,
+        .register {
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,19 +27,19 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../user/product.php">Product</a>
+                        <a class="nav-link" href="./user/product.php">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../user/about.php">About</a>
+                        <a class="nav-link" href="./user/about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../user/contact.php">Contact</a>
+                        <a class="nav-link" href="./user/contact.php">Contact</a>
                     </li>
                     <li class="nav-item mx-5">
-                        <a class="btn btn-outline-dark" href="../login.php">Login</a>
+                        <a class="btn btn-outline-dark" href="./login.php">Login</a>
                     </li>
                 </ul>
             </div>
@@ -40,54 +47,47 @@
     </nav>
     <!-- Navbar - End -->
 
-    <!-- Content - Start -->
-    <div class="container">
-        <h2 class="text-center mb-4">Contact</h2>
-        <div class="row">
-            <div class="col">
-                <img src="../img/contact.jpg" class="rounded" alt="contact" width="500px" height="700px">
+    <div class="container text-center" style="width: 500px;">
+        <h2 class="my-5">Login Page</h2>
+        <form action="" method="POST">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <input type="email" class="form-control" placeholder="Email address" required />
             </div>
-            <div class="col">
-                <!-- Alamat - Start -->
-                <div class="alamat">
-                    <h4>Alamat</h4>
-                    <p>Jl. Raya Kedung Baruk No.98, Kedung Baruk, Kec. Rungkut, Kota Surabaya, Jawa Timur 60298, Indonesia</p>
-                </div>
-                <!-- Alamat - End -->
 
-                <!-- Kontak - Start -->
-                <div class="kontak">
-                    <h4>Kontak</h4>
-                    <p>Telepon : (021) 234582121</p>
-                    <p>WA : (08) 123456789</p>
-                    <p>WA : (08) 987654321</p>
-                    <p>Email : sewakamera@gmail.com</p>
-                </div>
-                <!-- Kontak - End -->
-
-                <!-- Form Pesan - Start -->
-                <h4>Kirim Pesan</h4>
-                <form action="contact.php" method="post">
-                    <div class="form-group mb-3">
-                        <label for="name">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="message">Pesan</label>
-                        <textarea class="form-control" id="message" name="message" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Kirim</button>
-                </form>
-                <!-- Form Pesan - End -->
-
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" class="form-control" placeholder="Password" required />
             </div>
-        </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <a class="forgot" href="#">Forgot password?</a>
+                </div>
+                <div class="col"></div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-dark btn-block mb-4">Sign in</button>
+
+            <!-- Register buttons -->
+            <div class="text-center">
+                <p>Not a member? <a class="register" href="./register.php">Register</a></p>
+                <p>or sign up with:</p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                </button>
+            </div>
+        </form>
     </div>
-    <!-- Content - End -->
 
     <!-- Footer - Start -->
     <footer class="text-center text-lg-start" style="background-color: rgba(29, 29, 29, 0.2)">

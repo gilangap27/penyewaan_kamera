@@ -27,19 +27,19 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../user/product.php">Product</a>
+                        <a class="nav-link" href="./user/product.php">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../user/about.php">About</a>
+                        <a class="nav-link" href="./user/about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../user/contact.php">Contact</a>
+                        <a class="nav-link" href="./user/contact.php">Contact</a>
                     </li>
                     <li class="nav-item mx-5">
-                        <a class="btn btn-outline-primary" href="../user/login.php">Login</a>
+                        <a class="btn btn-outline-dark" href="./login.php">Login</a>
                     </li>
                 </ul>
             </div>
@@ -48,38 +48,34 @@
     <!-- Navbar - End -->
 
     <div class="container text-center" style="width: 500px;">
-        <h2 class="my-5">Login Page</h2>
-        <form>
+        <h2 class="my-5">Register Page</h2>
+        <form action="" method="POST">
+            <!-- Name input -->
+            <div class="form-outline mb-4">
+                <input type="tec=xt" class="form-control" placeholder="Name" required />
+            </div>
+
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" class="form-control" placeholder="Email address" />
+                <input type="email" class="form-control" placeholder="Email address" required />
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-                <input type="password" class="form-control" placeholder="Password" />
+                <input type="password" class="form-control" placeholder="Password" required />
             </div>
 
-            <div class="row mb-4">
-                <div class="col d-flex justify-content-center">
-                    <!-- Checkbox -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" />
-                        <label class="form-check-label"> Remember me </label>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <a class="forgot" href="#">Forgot password?</a>
-                </div>
+            <!-- Repeat Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" class="form-control" placeholder="Repeat Password" required />
             </div>
 
             <!-- Submit button -->
-            <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <button type="submit" class="btn btn-dark btn-block mb-4">Create Account</button>
 
             <!-- Register buttons -->
             <div class="text-center">
-                <p>Not a member? <a class="register" href="#!">Register</a></p>
+                <p>Already have account? <a class="register" href="./login.php">Login</a></p>
                 <p>or sign up with:</p>
                 <button type="button" class="btn btn-link btn-floating mx-1">
                     <i class="fab fa-facebook-f"></i>

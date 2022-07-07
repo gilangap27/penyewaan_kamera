@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,13 +32,99 @@
                         <a class="nav-link" href="../user/contact.php">Contact</a>
                     </li>
                     <li class="nav-item mx-5">
-                        <a class="btn btn-outline-primary" href="../user/login.php">Login</a>
+                        <a class="btn btn-outline-dark" href="../login.php">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Navbar - End -->
+
+    <!-- Main - Start -->
+    <main class="container">
+        <!-- Search - Start -->
+        <form action="" method="POST">
+            <div class="input-group mb-3" style="width: 50%;">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username">
+                <button class="btn btn-dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
+            </div>
+        </form>
+        <!-- Search - End -->
+
+        <!-- Product - Start -->
+        <div class="card-group">
+            <div class="card me-3">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="card me-3">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 2</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="card me-3">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 4</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-group">
+            <div class="card me-3">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="card me-3">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 2</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="card me-3">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product 4</h5>
+                    <p class="card-text">1 day - Rp. 100.000,00</p>
+                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product - End -->
+
+    </main>
+    <!-- Main - End -->
 
     <!-- Footer - Start -->
     <footer class="text-center text-lg-start" style="background-color: rgba(29, 29, 29, 0.2)">

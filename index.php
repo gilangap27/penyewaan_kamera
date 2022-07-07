@@ -32,7 +32,7 @@
                         <a class="nav-link" href="./user/contact.php">Contact</a>
                     </li>
                     <li class="nav-item mx-5">
-                        <a class="btn btn-outline-primary" href="./user/login.php">Login</a>
+                        <a class="btn btn-outline-dark" href="./login.php">Login</a>
                     </li>
                 </ul>
             </div>
@@ -95,7 +95,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Camera</h5>
                     <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, perspiciatis.</p>
                     <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
                 </div>
             </div>
@@ -104,7 +103,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Camera</h5>
                     <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, perspiciatis.</p>
                     <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
                 </div>
             </div>
@@ -113,7 +111,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Camera</h5>
                     <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, perspiciatis.</p>
                     <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
                 </div>
             </div>
@@ -131,7 +128,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Camera</h5>
                     <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, perspiciatis.</p>
                     <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
                 </div>
             </div>
@@ -140,7 +136,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Camera</h5>
                     <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, perspiciatis.</p>
                     <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
                 </div>
             </div>
@@ -149,7 +144,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Camera</h5>
                     <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, perspiciatis.</p>
                     <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
                 </div>
             </div>
