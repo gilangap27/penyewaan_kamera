@@ -1,3 +1,10 @@
+<?php
+require '../functions.php';
+
+$products = query('SELECT * FROM product');
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -7,6 +14,14 @@
     <title>Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .img-thumbnail {
+            object-fit: cover;
+            width: 250px;
+            height: 250px;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,74 +67,22 @@
         <!-- Search - End -->
 
         <!-- Product - Start -->
-        <div class="card-group">
-            <div class="card me-3">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 1</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+        <div class="row ">
+            <!-- my php code which uses x-path to get results from xml query. -->
+            <?php foreach ($products as $pro) : ?>
+                <div class="col-3">
+                    <div class="card-columns-fluid">
+                        <div class="card mb-5" style="width: 250px;">
+                            <img src="../img/product/<?= $pro['gambar'] ?>" class="card-img-top img-thumbnail" alt="kamera">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $pro['nama']; ?></h5>
+                                <p class="card-text">1 Hari - Rp. <?= number_format($pro['harga'], 2); ?></p>
+                                <a href="detail.php?id=<?= $pro['id']; ?>" class="btn btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card me-3">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 2</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
-                </div>
-            </div>
-            <div class="card me-3">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 3</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 4</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-group">
-            <div class="card me-3">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 1</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
-                </div>
-            </div>
-            <div class="card me-3">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 2</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
-                </div>
-            </div>
-            <div class="card me-3">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 3</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../img/kamera1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product 4</h5>
-                    <p class="card-text">1 day - Rp. 100.000,00</p>
-                    <a href="#" class="btn btn-dark"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <!-- Product - End -->
 

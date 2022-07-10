@@ -23,6 +23,12 @@
             color: white;
             text-decoration: none;
         }
+
+        .img-thumbnail {
+            object-fit: cover;
+            width: 230px;
+            height: 230px;
+        }
     </style>
 
 </head>
@@ -36,7 +42,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../admin/index.php">
                 <div class="sidebar-brand-text mx-3">SewaKamera</div>
             </a>
 

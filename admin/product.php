@@ -1,3 +1,11 @@
+<?php
+require '../functions.php';
+
+$products = query("SELECT * FROM product");
+
+?>
+
+
 <?php require './templates/header.php' ?>
 
 <!-- Page Heading -->
@@ -17,36 +25,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Kamera Action</td>
-                        <td>Rp.100.000/hari</td>
-                        <td>14</td>
-                        <td>
-                            <span class="badge bg-success"><a href="">Detail</a></span>
-                            <span class="badge bg-warning"><a href="">Edit</a></span>
-                            <span class="badge bg-danger"><a href="">Hapus</a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kamera Mirroless</td>
-                        <td>Rp.300.000/hari</td>
-                        <td>16</td>
-                        <td>
-                            <span class="badge bg-success"><a href="">Detail</a></span>
-                            <span class="badge bg-warning"><a href="">Edit</a></span>
-                            <span class="badge bg-danger"><a href="">Hapus</a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kamera DSLR</td>
-                        <td>Rp.500.000/hari</td>
-                        <td>10</td>
-                        <td>
-                            <span class="badge bg-success"><a href="">Detail</a></span>
-                            <span class="badge bg-warning"><a href="">Edit</a></span>
-                            <span class="badge bg-danger"><a href="">Hapus</a></span>
-                        </td>
-                    </tr>
+
+                    <!-- looping -->
+                    <?php $i = 1;
+                    foreach ($products as $pro) : ?>
+                        <tr>
+                            <td><?= $pro['nama']; ?></td>
+                            <td>Rp. <?= $pro['harga']; ?></td>
+                            <td><?= $pro['stok']; ?></td>
+                            <td>
+                                <span class="badge bg-success"><a href="detail_product.php?id=<?= $pro['id']; ?>">Detail</a></span>
+                                <span class=" badge bg-warning"><a href="edit_product.php?id=<?= $pro['id']; ?>">Edit</a></span>
+                                <span class="badge bg-danger"><a href="hapus.php?id=<?= $pro['id']; ?>" onclick="return confirm ('apakah anda yakin?');">Hapus</a></span>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
                 </tbody>
             </table>
         </div>
