@@ -7,7 +7,7 @@ $product = query('SELECT * FROM product WHERE id = ' . $id)[0];
 
 ?>
 
-<?php require './templates/header.php' ?>
+<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-2">
@@ -24,10 +24,10 @@ $product = query('SELECT * FROM product WHERE id = ' . $id)[0];
         <p class="mb-2"><b>Harga : </b> Rp. <?= number_format($product['harga'], 2); ?></p>
         <p class="mb-2"><b>Stok : </b> <?= $product['stok']; ?></p>
         <p class="mb-2"><b>Deskripsi : </b> <br><?= $product['deskripsi']; ?></p>
-        <p class="mb-2"><b>Kelengkapan : </b> <br><?= $product['kelengkapan']; ?></p>
-        <p class="mb-2"><b>Spesifikasi : </b> <br><?= $product['spek']; ?></p>
+        <pre class="mb-2 text-dark"><b>Kelengkapan : </b> <br><?= $product['kelengkapan']; ?></pre>
+        <pre class="mb-2 text-dark"><b>Spesifikasi : </b> <br><?= $product['spek']; ?></pre>
 
     </div>
 </div>
 
-<?php require './templates/footer.php' ?>
+<?php include './templates/footer.php' ?>

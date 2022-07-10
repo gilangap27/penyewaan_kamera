@@ -1,4 +1,4 @@
-<?php require './templates/header.php' ?>
+<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -16,7 +16,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Earnings</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 40,000</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-coins fa-2x text-gray-300"></i>
@@ -83,4 +83,4 @@
 
 <!-- Content Row -->
 
-<?php require './templates/footer.php' ?>
+<?php include './templates/footer.php' ?>

@@ -1,4 +1,4 @@
-<?php require './templates/header.php' ?>
+<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Transaction</h1>
@@ -54,4 +54,4 @@
     </div>
 </div>
 
-<?php require './templates/footer.php' ?>
+<?php include './templates/footer.php' ?>

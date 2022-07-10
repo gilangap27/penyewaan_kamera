@@ -26,8 +26,13 @@
 
         .img-thumbnail {
             object-fit: cover;
-            width: 230px;
-            height: 230px;
+            width: 250px;
+            height: 250px;
+        }
+
+        pre {
+            font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 1rem;
         }
     </style>
 

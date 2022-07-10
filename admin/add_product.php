@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
 
 ?>
 
-<?php require './templates/header.php' ?>
+<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-2">
@@ -97,7 +97,7 @@ if (isset($_POST["submit"])) {
     </div>
 </div>
 
-<?php require './templates/footer.php' ?>
+<?php include './templates/footer.php' ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
