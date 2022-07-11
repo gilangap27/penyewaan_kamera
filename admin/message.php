@@ -9,25 +9,25 @@
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead class="table-dark">
                     <tr>
+                        <th>Nama</th>
                         <th>Email</th>
-                        <th>Product</th>
                         <th>Message</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>Adi Setiawan</td>
                         <td>adi@gmail.com</td>
-                        <td>Kamera DLRS</td>
                         <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, recusandae.</td>
                     </tr>
                     <tr>
+                        <td>Dodi Maulana</td>
                         <td>dodi@gmail.com</td>
-                        <td>Kamera Action</td>
                         <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus alias totam eius aliquam dignissimos quo corrupti porro nobis consectetur nulla?</td>
                     </tr>
                     <tr>
+                        <td>Fani Ihma</td>
                         <td>fani@gmail.com</td>
-                        <td>Kamera Mirroless</td>
                         <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod veniam sunt? Fugiat dicta illo exercitationem quidem! Inventore, perferendis rem! Voluptatibus velit ratione dolor in?</td>
                     </tr>
                 </tbody>

@@ -25,6 +25,20 @@
             width: 250px;
             height: 250px;
         }
+
+        icon-shape {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .icon-sm {
+            width: 2rem;
+            height: 2rem;
+
+        }
     </style>
 </head>
 

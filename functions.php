@@ -112,15 +112,15 @@ function ubahData($data)
         $gambar = upload();
     }
 
-    $query = " UPDATE product SET
+    $query = "UPDATE product SET
                 gambar = '$gambar',
                 nama = '$nama',
                 brand = '$brand',
                 deskripsi = '$deskripsi',
                 kelengkapan = '$kelengkapan',
                 spek = '$spek',
-                stok = '$stok'
-                harga = '$harga',
+                stok = '$stok',
+                harga = '$harga'
                WHERE id = $id
             ";
 
