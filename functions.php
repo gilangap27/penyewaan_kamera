@@ -16,7 +16,7 @@ function query($data)
     return $baris;
 }
 
-function tambahData($data)
+function tambah_product($data)
 {
     $con = koneksi();
 
@@ -82,16 +82,7 @@ function upload()
     return $namaFileBaru;
 }
 
-function deleteData($id)
-{
-    $con = koneksi();
-    $query = "DELETE FROM product where id = $id";
-    mysqli_query($con, $query) or die(mysqli_error($con));
-
-    return mysqli_affected_rows($con);
-}
-
-function ubahData($data)
+function ubah_product($data)
 {
     $con = koneksi();
 
@@ -127,4 +118,52 @@ function ubahData($data)
     mysqli_query($con, $query);
 
     return mysqli_affected_rows($con);
+}
+
+function delete_data($id, $table)
+{
+    $con = koneksi();
+    $query = "DELETE FROM $table where id = $id";
+    mysqli_query($con, $query) or die(mysqli_error($con));
+
+    return mysqli_affected_rows($con);
+}
+
+function tambah_pembayaran($data)
+{
+    $con = koneksi();
+
+    $id_kamera = htmlspecialchars($data['id_kamera']);
+    $lama_sewa = htmlspecialchars($data['lama_sewa']);
+    $email = htmlspecialchars($data['email']);
+    $nama = htmlspecialchars($data['nama']);
+    $alamat = htmlspecialchars($data['alamat']);
+
+    $detailKamera = query("SELECT * FROM product WHERE id = $id_kamera")[0];
+
+    $total = $lama_sewa * $detailKamera['harga'];
+    $tanggal_sewa = strtotime($data['tanggal_sewa']);
+    $tanggal_sewa = date('Y-m-d', $tanggal_sewa);
+    $tanggal_kembali = date('Y-m-d', strtotime($tanggal_sewa . '+' . $lama_sewa . ' days'));
+
+    $status = "Pending";
+
+    $query = "INSERT INTO pembayaran VALUES
+            (null,
+            '$id_kamera',
+            '$email',
+            '$nama',
+            '$alamat',
+            '$total',
+            '$lama_sewa',
+            '$tanggal_sewa',
+            '$tanggal_kembali',
+            '$status')";
+
+    mysqli_query($con, $query);
+
+    echo mysqli_error($con);
+
+    return mysqli_affected_rows($con);
+    // mysqli_affected_rows($con) = angka (0: gak ada data masuk, 1:ada data masuk)
 }

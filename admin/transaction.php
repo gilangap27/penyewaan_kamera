@@ -1,3 +1,11 @@
+<?php
+
+require '../functions.php';
+
+$pembayaran = query("SELECT * FROM pembayaran");
+
+?>
+
 <?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
@@ -9,45 +17,35 @@
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Email</th>
+                        <th>Nama</th>
                         <th>Product</th>
-                        <th>Harga</th>
+                        <th>Lama Sewa</th>
+                        <th>Total</th>
                         <th>Tanggal Sewa</th>
                         <th>Tanggal Kembali</th>
                         <th>Status</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>adi@gmail.com</td>
-                        <td>Kamera DLRS</td>
-                        <td>Rp.500.000</td>
-                        <td>2022/05/28</td>
-                        <td>2022/05/29</td>
-                        <td>
-                            <span class="badge bg-secondary"><a href="">Pending</a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>dodi@gmail.com</td>
-                        <td>Kamera Action</td>
-                        <td>Rp.300.000</td>
-                        <td>2022/06/12</td>
-                        <td>2022/06/15</td>
-                        <td>
-                            <span class="badge bg-secondary"><a href="">Canceled</a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fani@gmail.com</td>
-                        <td>Kamera Mirroless</td>
-                        <td>Rp.600.000/hari</td>
-                        <td>2022/04/20</td>
-                        <td>2022/04/22</td>
-                        <td>
-                            <span class="badge bg-secondary"><a href="">Complete</a></span>
-                        </td>
-                    </tr>
+                    <?php foreach ($pembayaran as $pemb) : ?>
+                        <?php $kamera = query("SELECT * FROM product WHERE id = " . $pemb['id_product'])[0];
+                        ?>
+                        <tr>
+                            <td><?= $pemb['nama_penyewa']; ?></td>
+                            <td><?= $kamera['nama']; ?></td>
+                            <td><?= $pemb['lama_sewa']; ?></td>
+                            <td>Rp.<?= number_format($pemb['total'], 2); ?></td>
+                            <td><?= $pemb['tanggal_sewa']; ?></td>
+                            <td><?= $pemb['tanggal_kembali']; ?></td>
+                            <td>
+                                <span class="badge text-white"><?= $pemb['status']; ?></span>
+                            </td>
+                            <td>
+                                <span class="badge badge-primary"><a href="./edit_transaction.php?id=<?= $pemb['id'] ?>">Edit</a></span>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -55,3 +53,24 @@
 </div>
 
 <?php include './templates/footer.php' ?>
+
+<script>
+    const badges = document.querySelectorAll('.badge');
+    badges.forEach(badge => {
+        console.log(badge.textContent);
+        switch (badge.textContent) {
+            case "Pending":
+                badge.classList.add('bg-warning');
+                break;
+            case "Canceled":
+                badge.classList.add('bg-danger');
+                break;
+            case "Complete":
+                badge.classList.add('bg-success');
+                break;
+
+            default:
+                break;
+        }
+    });
+</script>

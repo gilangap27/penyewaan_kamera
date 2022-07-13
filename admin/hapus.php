@@ -5,7 +5,7 @@ require '../functions.php';
 $id = $_GET['id'];
 
 //jika berhasil hapus, ada alert
-if (deleteData($id) > 0) {
+if (delete_data($id, 'product') > 0) {
   echo "<script>
       alert('data berhasil dihapus');
       document.location.href = './product.php';

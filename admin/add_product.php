@@ -3,7 +3,7 @@ require '../functions.php';
 
 if (isset($_POST["submit"])) {
 
-    if (tambahData($_POST) > 0) {
+    if (tambah_product($_POST) > 0) {
         echo "
 			 <script>
 				alert('data berhasil ditambahkan');

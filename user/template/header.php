@@ -39,6 +39,49 @@
             height: 2rem;
 
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .labelexpanded {
+            font-size: 12px;
+        }
+
+        .labelexpanded>input {
+            display: none;
+        }
+
+        .labelexpanded input:checked+.radio-btns {
+            background-color: #cfcfcf;
+        }
+
+        .radio-btns {
+            height: 80px;
+            border-radius: 10px;
+            position: relative;
+            text-align: center;
+            padding: 5px 15px;
+            cursor: pointer;
+            float: left;
+            margin-right: 15px;
+        }
+
+        .radio-btns>img {
+            width: 100px;
+        }
     </style>
 </head>
 

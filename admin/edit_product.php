@@ -6,7 +6,7 @@ $id = $_GET['id'];
 $product = query('SELECT * FROM product WHERE id = ' . $id)[0];
 
 if (isset($_POST["submit"])) {
-    if (ubahData($_POST) > 0) {
+    if (ubah_product($_POST) > 0) {
         echo "
 			 <script>
 				alert('data berhasil ditambahkan');
