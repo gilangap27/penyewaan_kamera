@@ -167,3 +167,48 @@ function tambah_pembayaran($data)
     return mysqli_affected_rows($con);
     // mysqli_affected_rows($con) = angka (0: gak ada data masuk, 1:ada data masuk)
 }
+
+function register($data)
+{
+    $con = koneksi();
+
+    $nama = htmlspecialchars($data['name']);
+    $email = htmlspecialchars($data['email']);
+    $password = htmlspecialchars($data['password']);
+    $repassword = htmlspecialchars($data['repassword']);
+    $gambar = 'Profile.jpg';
+
+    // Cek jika password dan konfirmasi password sama atau tidak
+    if ($password !== $repassword) {
+        return false;
+    }
+
+    // Enkripsi Password
+    $password = md5($password);
+
+    $query = "INSERT INTO user VALUES (null,'$nama','$email','$password', '$gambar')";
+
+    mysqli_query($con, $query);
+
+    return mysqli_affected_rows($con);
+}
+
+function cek_login($data)
+{
+    $con = koneksi();
+
+    $email = htmlspecialchars($data['email']);
+    $password = htmlspecialchars($data['password']);
+
+    // Enkripsi Password
+    $password = md5($password);
+
+    $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
+    $result = mysqli_query($con, $query);
+
+    // Cek apakah email dan password ada di database
+    if (mysqli_num_rows($result) >= 1) {
+        return true;
+    }
+    return false;
+}
