@@ -1,96 +1,97 @@
 <?php
-
+session_start();
 require '../functions.php';
 
-$pendapatan = query("SELECT SUM(total) AS total FROM pembayaran")[0];
-$kamera = query("SELECT COUNT(*) AS total FROM product")[0];
-$pelanggan = query("SELECT COUNT(*) AS total FROM pembayaran")[0];
-$pending = query("SELECT COUNT(*) AS total FROM pembayaran WHERE status = 'Pending'")[0];
+
+if (isset($_POST['login'])) {
+    if (login_admin($_POST)) {
+        echo "
+			 <script>
+				alert('Login berhasil');
+				document.location.href = './dashboard.php';
+			 </script>
+			 ";
+    } else {
+        echo "
+			 <script>
+				alert('Login gagal');
+				document.location.href = './index.php';
+			 </script>
+			 ";
+    }
+}
+
 ?>
 
-<?php include './templates/header.php' ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-</div>
+<head>
 
-<!-- Content Row -->
-<div class="row">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Earnings Card -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Earnings</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. <?= number_format($pendapatan['total'], 2); ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-coins fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <title>Login</title>
 
-    <!-- Customers Card -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Customers</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $pelanggan['total']; ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-person fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Custom fonts for this template-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Kamera Card -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-danger shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                            Camera</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $kamera['total']; ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-camera fa-2x text-gray-300"></i>
+</head>
+
+<body class="bg-dark">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-6">
+
+                <div class="card border-0 shadow-lg my-5">
+                    <div class="card-body">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col px-5 py-3">
+                                <div class="text-center">
+                                    <h1 class="h4 mb-5">Login</h1>
+                                </div>
+                                <form class="mb-5" action="" method="POST">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control rounded-pill" placeholder="Username" name="username">
+                                    </div>
+                                    <div class="input-group-md mb-5">
+                                        <input type="password" class="form-control rounded-pill" placeholder="Password" name="password">
+                                    </div>
+                                    <button name="login" class="btn btn-dark rounded-pill w-100">
+                                        Login
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
-    <!-- Pending Requests Card -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Pending Requests</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $pending['total']; ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Content Row -->
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<?php include './templates/footer.php' ?>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

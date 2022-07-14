@@ -130,9 +130,9 @@ require '../functions.php';
                                 <img class="img-profile rounded-circle" src="../img/user/<?= $user['gambar'] ?>" width="30">
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Booking List</a></li>
-                                <li><a class="dropdown-item" href="./logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Booking List</a></li>
+                                <li><a class="dropdown-item" href="./logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                             </ul>
                         </li>
                         <!-- Profile Nav - End -->

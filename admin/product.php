@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['id_admin'])) {
+    header("Location: ./index.php");
+}
+
 require '../functions.php';
 
 $products = query("SELECT * FROM product");
@@ -20,7 +26,7 @@ $products = query("SELECT * FROM product");
                     <tr>
                         <th>Nama</th>
                         <th>Harga</th>
-                        <th>Jumlah</th>
+                        <th>Stok</th>
                         <th>Action</th>
                     </tr>
                 </thead>

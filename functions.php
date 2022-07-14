@@ -141,6 +141,10 @@ function tambah_pembayaran($data)
 
     $detailKamera = query("SELECT * FROM product WHERE id = $id_kamera")[0];
 
+    // Mengurangi Stok Kamera
+    $stok = $detailKamera['stok'] - 1;
+    mysqli_query($con, "UPDATE product SET stok = $stok WHERE id = $id_kamera");
+
     $total = $lama_sewa * $detailKamera['harga'];
     $tanggal_sewa = strtotime($data['tanggal_sewa']);
     $tanggal_sewa = date('Y-m-d', $tanggal_sewa);
@@ -219,4 +223,27 @@ function cek_login($data)
 function cari($keyword)
 {
     return query("SELECT * FROM product WHERE nama LIKE '%$keyword%'");
+}
+
+function login_admin($data)
+{
+    $con = koneksi();
+
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+
+    // Enkripsi Password
+    $password = md5($password);
+
+    $query = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+    $result = mysqli_query($con, $query);
+
+    // Cek apakah email dan password ada di database
+    if (mysqli_num_rows($result) > 0) {
+        $data = mysqli_fetch_assoc($result);
+
+        $_SESSION['id_admin'] = $data['id'];
+        return true;
+    }
+    return false;
 }

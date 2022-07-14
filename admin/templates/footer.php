@@ -33,7 +33,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Logout</button>
+                <a href="./logout.php" type="button" class="btn btn-primary">Logout</a>
             </div>
         </div>
     </div>

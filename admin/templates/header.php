@@ -47,7 +47,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../admin/index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./dashboard.php">
                 <div class="sidebar-brand-text mx-3">SewaKamera</div>
             </a>
 
@@ -56,7 +56,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="./index.php">
+                <a class="nav-link" href="./dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
