@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+require '../functions.php';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -82,6 +88,10 @@
         .radio-btns>img {
             width: 100px;
         }
+
+        .dropdown.no-arrow .dropdown-toggle::after {
+            display: none
+        }
     </style>
 </head>
 
@@ -107,9 +117,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../user/contact.php">Contact</a>
                     </li>
-                    <li class="nav-item mx-5">
-                        <a class="btn btn-outline-dark" href="../login.php">Login</a>
-                    </li>
+                    <?php if (!isset($_SESSION['id_user'])) : ?>
+                        <li class="nav-item mx-5">
+                            <a class="btn btn-outline-dark" href="../login.php">Login</a>
+                        </li>
+                    <?php else : ?>
+                        <?php $user = query('SELECT * FROM user WHERE id = ' . $_SESSION['id_user'])[0] ?>
+                        <!-- Profile Nav - Start -->
+                        <li class="nav-item dropdown no-arrow ms-5">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['nama']; ?></span>
+                                <img class="img-profile rounded-circle" src="../img/user/<?= $user['gambar'] ?>" width="30">
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Booking List</a></li>
+                                <li><a class="dropdown-item" href="./logout.php">Logout</a></li>
+                            </ul>
+                        </li>
+                        <!-- Profile Nav - End -->
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

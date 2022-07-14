@@ -1,4 +1,4 @@
-<?php require './template/header.php' ?>
+<?php require './template/header.php'; ?>
 
 <!-- Content - Start -->
 <div class="container text-center">

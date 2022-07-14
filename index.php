@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require './functions.php';
 
@@ -22,10 +23,15 @@ $products = query('SELECT * FROM product ORDER BY id DESC LIMIT 3');
             width: 350px;
             height: 350px;
         }
+
+        .dropdown.no-arrow .dropdown-toggle::after {
+            display: none
+        }
     </style>
+
 </head>
 
-<body>
+<body class="text-dark">
     <!-- Navbar - Start -->
     <nav class="navbar navbar-expand-lg bg-light sticky-top my-4">
         <div class="container">
@@ -34,7 +40,7 @@ $products = query('SELECT * FROM product ORDER BY id DESC LIMIT 3');
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="./index.php">Home</a>
                     </li>
@@ -47,9 +53,26 @@ $products = query('SELECT * FROM product ORDER BY id DESC LIMIT 3');
                     <li class="nav-item">
                         <a class="nav-link" href="./user/contact.php">Contact</a>
                     </li>
-                    <li class="nav-item mx-5">
-                        <a class="btn btn-outline-dark" href="./login.php">Login</a>
-                    </li>
+                    <?php if (!isset($_SESSION['id_user'])) : ?>
+                        <li class="nav-item mx-5">
+                            <a class="btn btn-outline-dark" href="./login.php">Login</a>
+                        </li>
+                    <?php else : ?>
+                        <?php $user = query('SELECT * FROM user WHERE id = ' . $_SESSION['id_user'])[0] ?>
+                        <!-- Profile Nav - Start -->
+                        <li class="nav-item dropdown no-arrow ms-5">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['nama']; ?></span>
+                                <img class="img-profile rounded-circle" src="img/user/<?= $user['gambar'] ?>" width="30">
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Booking List</a></li>
+                                <li><a class="dropdown-item" href="./user/logout.php">Logout</a></li>
+                            </ul>
+                        </li>
+                        <!-- Profile Nav - End -->
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

@@ -1,11 +1,10 @@
-<?php
-require '../functions.php';
+<?php require './template/header.php' ?>
 
+<?php
 $products = query('SELECT * FROM product');
 
 ?>
 
-<?php require './template/header.php' ?>
 
 <!-- Main - Start -->
 <main class="container">

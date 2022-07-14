@@ -207,7 +207,10 @@ function cek_login($data)
     $result = mysqli_query($con, $query);
 
     // Cek apakah email dan password ada di database
-    if (mysqli_num_rows($result) >= 1) {
+    if (mysqli_num_rows($result) > 0) {
+        $data = mysqli_fetch_assoc($result);
+
+        $_SESSION['id_user'] = $data['id'];
         return true;
     }
     return false;
