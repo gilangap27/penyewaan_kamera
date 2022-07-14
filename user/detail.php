@@ -1,6 +1,6 @@
-<?php
+<?php require './template/header.php' ?>
 
-require '../functions.php';
+<?php
 
 $id = $_GET['id'];
 
@@ -8,7 +8,6 @@ $product = query('SELECT * FROM product WHERE id = ' . $id)[0];
 
 ?>
 
-<?php require './template/header.php' ?>
 
 <!-- Content - Start -->
 <div class="container">

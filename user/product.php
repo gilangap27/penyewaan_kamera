@@ -1,7 +1,11 @@
 <?php require './template/header.php' ?>
 
 <?php
-$products = query('SELECT * FROM product');
+$products = query('SELECT * FROM product WHERE stok > 0');
+
+if (isset($_POST["cari"])) {
+    $products = cari($_POST['keyword']);
+}
 
 ?>
 
@@ -11,8 +15,8 @@ $products = query('SELECT * FROM product');
     <!-- Search - Start -->
     <form action="" method="POST">
         <div class="input-group mb-3" style="width: 50%;">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username">
-            <button class="btn btn-dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
+            <input type="text" class="form-control" name="keyword" placeholder="Search" aria-label="Recipient's username" autocomplete="off">
+            <button class="btn btn-dark" name="cari" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
         </div>
     </form>
     <!-- Search - End -->

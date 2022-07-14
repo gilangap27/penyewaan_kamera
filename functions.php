@@ -215,3 +215,8 @@ function cek_login($data)
     }
     return false;
 }
+
+function cari($keyword)
+{
+    return query("SELECT * FROM product WHERE nama LIKE '%$keyword%'");
+}
