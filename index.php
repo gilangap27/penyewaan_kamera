@@ -68,7 +68,7 @@ $products = query('SELECT * FROM product ORDER BY id DESC LIMIT 3');
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Booking List</a></li>
-                                <li><a class="dropdown-item" href="./user/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                             </ul>
                         </li>
                         <!-- Profile Nav - End -->
@@ -190,3 +190,22 @@ $products = query('SELECT * FROM product ORDER BY id DESC LIMIT 3');
     <!-- Testimoni - End -->
 
     <?php require './user/template/footer.php' ?>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                </div>
+                <div class="modal-body">
+                    Select "Logout" below if you are ready to end your current session.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="./user/logout.php" type="button" class="btn btn-primary">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>

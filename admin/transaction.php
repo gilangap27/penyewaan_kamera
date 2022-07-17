@@ -14,7 +14,7 @@ $pembayaran = query("SELECT * FROM pembayaran");
 <?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Transaction</h1>
+<h1 class="h3 mb-2 text-gray-800">Transaksi</h1>
 
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -24,7 +24,7 @@ $pembayaran = query("SELECT * FROM pembayaran");
                     <tr>
                         <th>Nama</th>
                         <th>Product</th>
-                        <th>Lama Sewa</th>
+                        <th>Lama</th>
                         <th>Total</th>
                         <th>Tanggal Sewa</th>
                         <th>Tanggal Kembali</th>
@@ -48,6 +48,7 @@ $pembayaran = query("SELECT * FROM pembayaran");
                             </td>
                             <td>
                                 <span class="badge badge-primary"><a href="./edit_transaction.php?id=<?= $pemb['id'] ?>">Edit</a></span>
+                                <span class="badge badge-danger"><a href="./delete_transaction.php?id=<?= $pemb['id'] ?>">Delete</a></span>
                             </td>
                         </tr>
                     <?php endforeach; ?>

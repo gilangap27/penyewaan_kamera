@@ -132,7 +132,7 @@ require '../functions.php';
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Booking List</a></li>
-                                <li><a class="dropdown-item" href="./logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                             </ul>
                         </li>
                         <!-- Profile Nav - End -->

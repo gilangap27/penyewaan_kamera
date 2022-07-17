@@ -50,13 +50,13 @@ if (isset($_POST['login'])) {
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-6">
+            <div class="col-5">
 
                 <div class="card border-0 shadow-lg my-5">
                     <div class="card-body">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col px-5 py-3">
+                            <div class="col px-4 py-3">
                                 <div class="text-center">
                                     <h1 class="h4 mb-5">Login</h1>
                                 </div>

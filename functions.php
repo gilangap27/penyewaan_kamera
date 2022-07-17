@@ -247,3 +247,26 @@ function login_admin($data)
     }
     return false;
 }
+
+function tambah_ulasan($data)
+{
+    $con = koneksi();
+
+    $id_kamera = htmlspecialchars($data['id_kamera']);
+    $id_user = htmlspecialchars($data['id_user']);
+    $rating = htmlspecialchars($data['rating']);
+    $pesan = htmlspecialchars($data['pesan']);
+
+    $query = "INSERT INTO ulasan VALUES
+            (null,
+            '$id_kamera',
+            '$id_user',
+            '$rating',
+            '$pesan')";
+    mysqli_query($con, $query);
+
+    echo mysqli_error($con);
+
+    return mysqli_affected_rows($con);
+    // mysqli_affected_rows($con) = angka (0: gak ada data masuk, 1:ada data masuk)
+}

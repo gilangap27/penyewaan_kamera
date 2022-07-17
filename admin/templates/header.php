@@ -88,14 +88,14 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="./transaction.php">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Transaction</span>
+                    <span>Transaksi</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="./message.php">
-                    <i class="fa-solid fa-message"></i>
-                    <span>Message</span></a>
+                <a class="nav-link" href="./ulasan.php">
+                    <i class="fa-solid fa-comment"></i>
+                    <span>Ulasan</span></a>
             </li>
 
             <!-- Divider -->

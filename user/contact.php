@@ -9,7 +9,7 @@
         </div>
         <div class="col">
             <!-- Alamat - Start -->
-            <div class="alamat">
+            <div class="alamat mb-5">
                 <h4>Alamat</h4>
                 <p>Jl. Raya Kedung Baruk No.98, Kedung Baruk, Kec. Rungkut, Kota Surabaya, Jawa Timur 60298, Indonesia</p>
             </div>
@@ -24,25 +24,6 @@
                 <p>Email : sewakamera@gmail.com</p>
             </div>
             <!-- Kontak - End -->
-
-            <!-- Form Pesan - Start -->
-            <h4>Kirim Pesan</h4>
-            <form action="contact.php" method="post">
-                <div class="form-group mb-3">
-                    <label for="name">Nama</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="message">Pesan</label>
-                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Kirim</button>
-            </form>
-            <!-- Form Pesan - End -->
 
         </div>
     </div>
