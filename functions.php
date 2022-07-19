@@ -1,5 +1,7 @@
 <?php
 
+$ROOT = 'http://localhost/penyewaan_kamera/';
+
 function koneksi()
 {
     return mysqli_connect('localhost', 'root', '', 'penyewaan_kamera');
@@ -42,7 +44,7 @@ function tambah_product($data)
             '$deskripsi',
             '$kelengkapan',
             '$spek',
-            '$stok'
+            '$stok',
             '$harga')";
     mysqli_query($con, $query);
 
@@ -55,16 +57,7 @@ function tambah_product($data)
 function upload()
 {
     $namaFile = $_FILES['gambar']['name'];
-    $ukuranFile = $_FILES['gambar']['size'];
     $tempName = $_FILES['gambar']['tmp_name'];
-
-    //cek ukuran gambar jika besar
-    if ($ukuranFile > 500000) {
-        echo  "<script>
-                alert('ukuran gambar besar');
-              </script>";
-        return false;
-    }
 
     $ekstensiGambar = pathinfo($namaFile, PATHINFO_EXTENSION);
     $namaFileBaru = uniqid();
@@ -124,7 +117,7 @@ function delete_data($id, $table)
 {
     $con = koneksi();
     $query = "DELETE FROM $table where id = $id";
-    mysqli_query($con, $query) or die(mysqli_error($con));
+    mysqli_query($con, $query);
 
     return mysqli_affected_rows($con);
 }

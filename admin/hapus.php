@@ -12,10 +12,13 @@ $id = $_GET['id'];
 
 //jika berhasil hapus, ada alert
 if (delete_data($id, 'product') > 0) {
-  echo "<script>
-      alert('data berhasil dihapus');
-      document.location.href = './product.php';
-  </script>";
+  echo
+  "<script>
+        window.location = './product.php';
+    </script>";
 } else {
-  echo "data gagal dihapus";
+  echo
+  "<script>
+        window.location = './product.php';
+    </script>";
 }

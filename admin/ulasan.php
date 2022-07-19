@@ -1,17 +1,12 @@
-<?php
-session_start();
+<?php include './templates/header.php' ?>
 
+<?php
 if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
 
-require '../functions.php';
-
 $ulasan = query("SELECT * FROM ulasan");
-
 ?>
-
-<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Message</h1>

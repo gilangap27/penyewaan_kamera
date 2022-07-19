@@ -26,10 +26,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
             </div>
             <div class="modal-body">
-                Select "Logout" below if you are ready to end your current session.
+                Anda yakin ingin logout dari akun ini?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

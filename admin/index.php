@@ -1,26 +1,7 @@
 <?php
 session_start();
+
 require '../functions.php';
-
-
-if (isset($_POST['login'])) {
-    if (login_admin($_POST)) {
-        echo "
-			 <script>
-				alert('Login berhasil');
-				document.location.href = './dashboard.php';
-			 </script>
-			 ";
-    } else {
-        echo "
-			 <script>
-				alert('Login gagal');
-				document.location.href = './index.php';
-			 </script>
-			 ";
-    }
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +73,31 @@ if (isset($_POST['login'])) {
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+    <?php
+    if (isset($_POST['login'])) {
+        if (login_admin($_POST)) {
+    ?>
+            <script>
+                swal("Selamat!", "Login anda berhasil!", "success")
+                    .then(function() {
+                        window.location = "./dashboard.php";
+                    });;
+            </script>
+        <?php
+        } else {
+        ?>
+            <script>
+                swal("Maaf!", "Login anda gagal!", "error")
+                    .then(function() {
+                        window.location = "./index.php";
+                    });;
+            </script>
+    <?php
+        }
+    }
+    ?>
 </body>
 
 </html>

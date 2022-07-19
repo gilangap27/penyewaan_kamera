@@ -1,19 +1,15 @@
-<?php
-session_start();
+<?php include './templates/header.php' ?>
 
+<?php
 if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
 
-require '../functions.php';
-
 $id = $_GET['id'];
 
 $product = query('SELECT * FROM product WHERE id = ' . $id)[0];
-
 ?>
 
-<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-2">

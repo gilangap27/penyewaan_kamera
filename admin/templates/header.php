@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+require '../functions.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,23 +24,7 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
-    <style>
-        .badge a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .img-thumbnail {
-            object-fit: cover;
-            width: 250px;
-            height: 250px;
-        }
-
-        pre {
-            font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            font-size: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= $ROOT ?>css/admin.css">
 
 </head>
 

@@ -1,3 +1,5 @@
+<?php require '../functions.php' ?>
+
 <?php require './template/header.php'; ?>
 
 <!-- Content - Start -->

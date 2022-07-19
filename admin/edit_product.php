@@ -1,37 +1,15 @@
-<?php
-session_start();
+<?php require './templates/header.php' ?>
 
+<?php
 if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
 
-require '../functions.php';
-
 $id = $_GET['id'];
 
 $product = query('SELECT * FROM product WHERE id = ' . $id)[0];
-
-if (isset($_POST["submit"])) {
-    if (ubah_product($_POST) > 0) {
-        echo "
-			 <script>
-				alert('data berhasil ditambahkan');
-				document.location.href = './product.php';
-			 </script>
-			 ";
-    } else {
-        echo "
-			 <script>
-				alert('data gagal ditambahkan');
-				document.location.href = './product.php';
-			 </script>
-			 ";
-    }
-}
-
 ?>
 
-<?php require './templates/header.php' ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-2">
@@ -64,7 +42,7 @@ if (isset($_POST["submit"])) {
             <!-- Brand Product -->
             <label class="form-label">Brand</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" value="<?= $product['nama']; ?>" name="brand" required>
+                <input type="text" class="form-control" value="<?= $product['brand']; ?>" name="brand" required>
             </div>
 
             <!-- Description Product -->
@@ -111,6 +89,32 @@ if (isset($_POST["submit"])) {
 
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<?php
+if (isset($_POST['submit'])) {
+    if (ubah_product($_POST)) {
+?>
+        <script>
+            swal("Selamat!", "Data berhasil diupdate!", "success")
+                .then(function() {
+                    window.location = "./product.php";
+                });;
+        </script>
+    <?php
+    } else {
+    ?>
+        <script>
+            swal("Maaf!", "Data gagal diupdate!", "error")
+                .then(function() {
+                    window.location = "./edit_product.php?id=<?= $product['id']; ?>";
+                });;
+        </script>
+<?php
+    }
+}
+?>
 
 <?php require './templates/footer.php' ?>
 

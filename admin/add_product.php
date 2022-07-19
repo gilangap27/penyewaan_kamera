@@ -1,34 +1,10 @@
-<?php
-session_start();
+<?php include './templates/header.php' ?>
 
+<?php
 if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
-
-require '../functions.php';
-
-if (isset($_POST["submit"])) {
-
-    if (tambah_product($_POST) > 0) {
-        echo "
-			 <script>
-				alert('data berhasil ditambahkan');
-				document.location.href = './add_product.php';
-			 </script>
-			 ";
-    } else {
-        echo "
-			 <script>
-				alert('data gagal ditambahkan');
-				document.location.href = './add_product.php';
-			 </script>
-			 ";
-    }
-}
-
 ?>
-
-<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-2">
@@ -102,6 +78,32 @@ if (isset($_POST["submit"])) {
 
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<?php
+if (isset($_POST['submit'])) {
+    if (tambah_product($_POST)) {
+?>
+        <script>
+            swal("Selamat!", "Data berhasil ditambahkan!", "success")
+                .then(function() {
+                    window.location = "./product.php";
+                });;
+        </script>
+    <?php
+    } else {
+    ?>
+        <script>
+            swal("Maaf!", "Data gagal ditambahkan!", "error")
+                .then(function() {
+                    window.location = "./add_product.php";
+                });;
+        </script>
+<?php
+    }
+}
+?>
 
 <?php include './templates/footer.php' ?>
 

@@ -1,17 +1,12 @@
-<?php
-session_start();
+<?php include './templates/header.php' ?>
 
+<?php
 if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
 
-require '../functions.php';
-
 $pembayaran = query("SELECT * FROM pembayaran");
-
 ?>
-
-<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Transaksi</h1>
@@ -48,12 +43,30 @@ $pembayaran = query("SELECT * FROM pembayaran");
                             </td>
                             <td>
                                 <span class="badge badge-primary"><a href="./edit_transaction.php?id=<?= $pemb['id'] ?>">Edit</a></span>
-                                <span class="badge badge-danger"><a href="./delete_transaction.php?id=<?= $pemb['id'] ?>">Delete</a></span>
+                                <span class="badge badge-danger"><a href="" data-bs-toggle="modal" data-bs-target="#hapusModal">Delete</a></span>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="hapusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="hapusModalLabel">Anda yakin?</h5>
+            </div>
+            <div class="modal-body">
+                <p>Anda yakin ingin menghapus data ini!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                <a href="./delete_transaction.php?id=<?= $pemb['id'] ?>" type="button" class="btn btn-danger">Yakin</a>
+            </div>
         </div>
     </div>
 </div>

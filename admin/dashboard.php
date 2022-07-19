@@ -1,11 +1,9 @@
-<?php
-session_start();
+<?php include './templates/header.php' ?>
 
+<?php
 if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
-
-require '../functions.php';
 
 $pendapatan = query("SELECT SUM(total) AS total FROM pembayaran")[0];
 $kamera = query("SELECT COUNT(*) AS total FROM product")[0];
@@ -13,7 +11,6 @@ $pelanggan = query("SELECT COUNT(*) AS total FROM pembayaran")[0];
 $pending = query("SELECT COUNT(*) AS total FROM pembayaran WHERE status = 'Pending'")[0];
 ?>
 
-<?php include './templates/header.php' ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">

@@ -6,6 +6,6 @@ if (!isset($_SESSION['id_admin'])) {
 }
 
 session_start();
-session_destroy();
+unset($_SESSION['id_admin']);
 
 header("Location: ./index.php");

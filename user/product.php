@@ -1,3 +1,5 @@
+<?php require '../functions.php' ?>
+
 <?php require './template/header.php' ?>
 
 <?php
@@ -45,3 +47,20 @@ if (isset($_POST["cari"])) {
 <!-- Main - End -->
 
 <?php require './template/footer.php' ?>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<?php
+if ($_SESSION['pembayaran'] == true) {
+?>
+    <script>
+        swal("Selamat!", "Pembayaran anda berhasil!", "success")
+            .then(function() {
+                window.location = "./product.php";
+            });
+    </script>
+<?php
+    $_SESSION['pembayaran'] = false;
+}
+
+?>

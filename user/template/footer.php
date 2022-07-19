@@ -37,18 +37,18 @@
 <!-- Footer - End -->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="logoutLabel">Logout</h5>
             </div>
             <div class="modal-body">
-                Select "Logout" below if you are ready to end your current session.
+                Anda yakin ingin logout dari akun ini?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="./logout.php" type="button" class="btn btn-primary">Logout</a>
+                <a href="<?= $ROOT ?>/logout.php" type="button" class="btn btn-primary">Logout</a>
             </div>
         </div>
     </div>
