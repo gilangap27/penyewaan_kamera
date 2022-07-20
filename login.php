@@ -15,13 +15,6 @@
             <input type="password" name="password" class="form-control" placeholder="Password" required />
         </div>
 
-        <div class="row mb-4">
-            <div class="col">
-                <a class="forgot" href="#">Forgot password?</a>
-            </div>
-            <div class="col"></div>
-        </div>
-
         <!-- Submit button -->
         <button type="submit" name="login" class="btn btn-dark btn-block mb-4">Sign in</button>
 

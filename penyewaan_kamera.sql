@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 14, 2022 at 02:25 PM
+-- Generation Time: Jul 20, 2022 at 04:41 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -56,6 +56,8 @@ CREATE TABLE `pembayaran` (
   `lama_sewa` int(11) NOT NULL,
   `tanggal_sewa` varchar(30) NOT NULL,
   `tanggal_kembali` varchar(30) NOT NULL,
+  `dp` int(11) NOT NULL,
+  `metode` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -63,10 +65,10 @@ CREATE TABLE `pembayaran` (
 -- Dumping data for table `pembayaran`
 --
 
-INSERT INTO `pembayaran` (`id`, `id_product`, `email_penyewa`, `nama_penyewa`, `alamat`, `total`, `lama_sewa`, `tanggal_sewa`, `tanggal_kembali`, `status`) VALUES
-(3, 4, 'gilang.arya.paradan272001@hotmail.com', 'Gilang', 'Jl. Raya Tembelang', 825000, 3, '2022-07-15', '2022-07-18', 'Complete'),
-(4, 2, 'dodo001@gmail.com', 'Dodo', 'Jl. Raya Surabaya', 400000, 2, '2022-07-14', '2022-07-16', 'Pending'),
-(5, 5, 'gilang.arya.pradana272001@gmail.com', 'Gilang Pradana', 'Jl. Kedunghalang', 690000, 3, '2022-07-15', '2022-07-18', 'Pending');
+INSERT INTO `pembayaran` (`id`, `id_product`, `email_penyewa`, `nama_penyewa`, `alamat`, `total`, `lama_sewa`, `tanggal_sewa`, `tanggal_kembali`, `dp`, `metode`, `status`) VALUES
+(1, 1, 'reza.akbar@gmail.com', 'Reza Akbar', 'Jl. Ahmad Yani, Surabaya', 500000, 2, '2022-07-20', '2022-07-22', 25000, 'bca', 'Complete'),
+(2, 5, 'dodi.firmansyah@gmail.com', 'Dodi Firmansyah', 'Jl. Raya Jombang', 375000, 3, '2022-07-21', '2022-07-24', 18750, 'dana', 'Pending'),
+(3, 4, 'gilang.arya.pradana@gmail.com', 'Gilang Arya Pradana', 'Jl. Raya Malang', 400000, 2, '2022-07-23', '2022-07-25', 20000, 'visa', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -78,8 +80,8 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `gambar` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `brand` varchar(255) NOT NULL,
-  `deskripsi` varchar(1000) NOT NULL,
+  `brand` varchar(100) NOT NULL,
+  `deskripsi` varchar(500) NOT NULL,
   `kelengkapan` varchar(500) NOT NULL,
   `spek` varchar(500) NOT NULL,
   `stok` int(11) NOT NULL,
@@ -91,10 +93,32 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `gambar`, `nama`, `brand`, `deskripsi`, `kelengkapan`, `spek`, `stok`, `harga`) VALUES
-(2, '62cbf1a0a7437.jpg', 'Canon EOS 5D Mark III', 'Canon EOS 5D Mark III', 'EOS 5D Mark III tidak hanya menawarkan pemrosesan sinyal 14 bit untuk gradasi gambar yang sangat baik, namun juga memberikan standar dan ISO yang lebih tinggi, dan opsi baru untuk meningkatkan pengambilan gambar dalam situasi pencahayaan bervariasi dan cepat berubah. Dengan kisaran standar ISO 100-25600, EOS 5D Mark III mewakili peningkatan sensitivitas 2-stop dibandingkan kamera sebelumnya. Berkat rasio signal-to-noise yang ditingkatkan dari sensor baru dan pengurangan kebisingan yang kuat, EOS 5D Mark III dapat memotret sensitivitas yang diperluas sampai ISO 50 (L) dan sampai 51200 (H1), dan bahkan 102400 (H2) ! Selain keuntungan yang jelas dari rentang ISO yang lebar, EOS 5D Mark III memiliki pengaturan ISO otomatis, terdapat pada menu ISO khusus. Pengaturan minimum dan maksimum ISO dapat ditentukan, seperti juga kisaran yang ditentukan pengguna, ditambah auto dan manual penuh.', '2 buah Memory SD Card 32GB\r\n2 buah Baterai\r\nCharger', '22.3 MP Full-Frame CMOS Sensor\r\nDIGIC 5+ Image Processor\r\n3.2&quot; 1.04m-Dot ClearView II LCD Monitor\r\nFull HD 1080p Video Recording at 30 fps\r\n61-Point High Density Reticular AF\r\nNative ISO 25600, Extended to ISO 102400\r\n6 fps Shooting in RAW+JPEG\r\n63-Zone Dual Layer Metering Sensor\r\n14-Bit RAW Files and S-RAW Format\r\nMagnesium Alloy Body, SD/CF Card Slots', 3, 200000),
-(3, '62cbf2aa44572.jpg', 'Sony Alpha a6100', 'Sony Alpha a6100', 'Sony A6100, Sony Menghadirkan fitur serbaguna yang diatur dalam desain yang sangat ringkas, Sony a6100 adalah kamera mirrorless format APS-C yang sangat cocok untuk foto dan video. Dengan sensor CMOS 24.2MP dan prosesor BIONZ X. Menangkap gambar diam resolusi tinggi dengan rentang sensitivitas luas dan noise rendah dimungkinkan. Kombinasi sensor dan prosesor juga memungkinkan perekaman video UHD 4K bersama dengan pemotretan cepat hingga 11 fps untuk bekerja dengan objek yang bergerak.', '2 buah Memory Sandisk SDXC Extreme 64GB\r\n4 buah Battery NP-FW50\r\nTriple Dock Charger\r\nï»¿Bag', '24-megapixel APS-C CMOS sensor\r\nï»¿BIONZ X image processor\r\nï»¿425-point hybrid autofocus system\r\n3-inch tilting touchscreen LCD with 921.6K dots of resolution\r\n1.44-million-dot electronic viewfinder\r\nISO range of 100-32000 (expandable to 51200)\r\n11 fps continuous shooting\r\n4K video\r\nï»¿Built-in wireless and Bluetooth', 4, 140000),
-(4, '62cbf3aa31d1a.jpg', 'Fujifilm X-T4', 'Fujifilm X-T4', 'Fujifilm X-T4 Body adalah kamera tanpa cermin/mirrorless serbaguna yang memadukan kemampuan foto dan video yang canggih bersama dengan alur kerja yang ditingkatkan. Memanfaatkan sensor APS-C-format 26.1MP X-Trans CMOS 4, X-T4 mampu merekam dengan resolusi tinggi bersama dengan dukungan untuk video DCI / UHD 4K pada 60 fps, perekaman Full HD hingga 240 fps, sensitivitas dari ISO 160-12800, dan pemotretan bersambungan hingga 15 fps dengan rana mekanis. Desain BSI dari sensor menghasilkan pengurangan noise dan kejernihan keseluruhan yang lebih besar dan dipasangkan dengan X-Processor 4. Desain sensor juga memungkinkan sistem fokus otomatis hibrida yang menggabungkan 425 titik deteksi fase dengan sistem deteksi kontras untuk kinerja AF yang cepat dan akurat.', '2 buah Memory SDXC Extreme 64GB\r\n2 buah Battery\r\nDual Charger\r\nStrap (*by request)\r\nBag', '26.1MP APS-C X-Trans BSI CMOS 4 Sensor\r\nX-Processor 4 Image Processor\r\n5-Axis In-Body Image Stabilization\r\nDCI/UHD 4K at 60 fps, Full HD at 240 fps\r\n425-Point Hybrid AF System\r\n3.69m-Dot 0.75x OLED EVF\r\n3.0&quot; 1.62m-Dot Vari-Angle Touchscreen\r\nISO 160-12800, up to 15-fps Shooting\r\nBluetooth and Wi-Fi Connectivity\r\nFilm Simulation Modes', 4, 275000),
-(5, '62cbf4911aa3b.jpg', 'Nikon D750', 'Nikon D750', 'Nikon D750 Body menampilkan sensor CMOS 24.3MP, bersama dengan prosesor gambar EXPEED 4, kamera ini mampu menghasilkan resolusi tinggi dengan gradasi warna yang halus, noise rendah, dan sensitivitas terhadap ISO 51200 yang dapat diperluas, dengan kecepatan pengambilan gambar terus menerus hingga 6,5 fps. Untuk perekaman video didukung dengan Full HD 1080p/60. Serta didukung dengan LCD 3.2 &quot;1.222k dot yang dapat dilipat 180 Derajat. D750 juga memiliki fitur konektivitas Wi-Fi.', '2 buah Memory SDHC 32GB\r\n2 buah Battery\r\nCharger\r\nBag', '24.3MP FX-Format CMOS Sensor\r\nï»¿EXPEED 4 Image Processor\r\nï»¿3.2&quot; 1,229k-Dot RGBW Tilting LCD Monitor\r\nï»¿Full HD 1080p Video Recording at 60 fps\r\nï»¿Multi-CAM 3500FX II 51-Point AF Sensor\r\nï»¿Native ISO 12800, Extended to ISO 51200\r\nContinuous Shooting Up to 6.5 fps\r\nï»¿91k-Pixel RGB Sensor and Group Area AF\r\nBuilt-In Wi-Fi Connectivity\r\nï»¿Time Lapse Shooting &amp; Exposure Smoothing', 4, 230000);
+(1, '62d75cabb573b.jpg', 'Canon EOS 6D Mark II', 'Canon', 'Hadir sebagai DSLR paling ringan dalam jajaran EOS full-frame DSLR, EOS 6D Mark II adalah kamera DSLR yang dahsyat namun tetap ringkas, yang mampu membawa karya Anda ke level berikutnya. Sensor 26,2 megapiksel, Dual Pixel CMOS AF, dan layar sentuh LCD Vari-angle yang dimiliki kamera ini memberikan Anda kemudahan untuk mengambil foto dan video yang memukau. Anda dapat mengabadikan momen dengan AF cepat, yang dapat dioperasikan melalui layar sentuh dan dari sudut yang berbeda-beda.', 'SDHC Sandisk Ultra 32GB x2\r\nBaterai x2\r\nCharger\r\nBag', '26.2MP Full-Frame CMOS Sensor\r\nDIGIC 7 Image Processor\r\n45-Point All-Cross Type AF System\r\nFull HD Video at 60 fps; Digital IS\r\n3&quot; 1.04m-Dot Vari-Angle Touchscreen LCD\r\nDual Pixel CMOS AF and Movie Servo AF\r\nNative ISO 40000, Expanded to ISO 102400\r\n6.5 fps Shooting; Time-Lapse &amp; HDR Movie\r\nBuilt-In GPS, Bluetooth &amp; Wi-Fi with NFC\r\nDust and Water-Resistant; SD Card Slot', 12, 250000),
+(2, '62d75d97e829f.jpg', 'Fujifilm X-T30', 'Fujifilm', 'FUJIFILM X-T30 baru, menawarkan kinerja serupa dengan FUJIFILM X-T3, dalam bodi yang lebih kecil dan lebih ringan. Kamera ini memiliki sistem AF deteksi fase yang sama dengan cakupan bingkai hampir 100%, pemotretan beruntun berkecepatan tinggi bebas-blackout hingga 30fps, fungsi penyesuaian monokrom, efek Chrome Warna, dan mode Jendela Bidik Olahraga. Kamera ini juga menawarkan fungsi yang memenuhi kebutuhan yang kurang profesional, seperti fungsi Advanced SR Auto.', 'Memory SDXC 64GB x1, SDHC 32GB x1\r\nBattery x2\r\nCharger\r\nStrap (*by request)\r\nBag', '26.1MP APS-C X-Trans BSI CMOS 4 Sensor\r\nX-Processor 4 with Quad CPU\r\nDCI and UHD 4K30 Video; F-Log Gamma\r\n2.36m-Dot OLED Electronic Viewfinder\r\n3.0&quot; 1.04m-Dot Tilting LCD Touchscreen\r\n425-Point Phase-Detection Autofocus\r\nExtended ISO 80-51200, 30 fps Shooting\r\nBluetooth and Wi-Fi; Sports Finder Mode\r\nXF 18-55mm f/2.8-4 R LM OIS Lens', 20, 150000),
+(3, '62d75ebc69f8f.jpg', 'Nikon D810', 'Nikon', 'Nikon D810 hadir setelah kurang lebih 2 tahun . Kamera Nikon seri 800 ini hadir dengan sensor kamera 36.3 Megapiksel yang masih sama dengan pendahulunya. Nikon D810 juga tidak memiliki Low-Pass Filter sama seperti seri D800E ', 'Memory SDHC 32GB x2\r\nBattery x2\r\nCharger\r\nBag', '36.3MP FX-Format CMOS Sensor\r\nEXPEED 4 Image Processor\r\nNo Optical Low Pass Filter\r\n3.2&quot; 1,229k-Dot LCD Monitor\r\nFull HD 1080p Video at 60/30/24 fps\r\nMulti-CAM 3500FX 51-Point AF Sensor\r\nNative ISO 12800, Extended to ISO 51200\r\n5 fps Shooting at Full Resolution\r\nElectronic Front Curtain Shutter\r\n14-Bit RAW Files and 12-Bit RAW S Format', 15, 275000),
+(4, '62d75f8a8c047.jpg', 'Sony Alpha a7 Mark II', 'Sony', 'Sony Alpha a7 Mark II adalah kamera full-frame pertama di dunia dengan stabilisasi gambar 5-poros dan memberikan kompensasi guncangan kamera untuk beragam lensa lepas pasang. Berbentuk ringkas dan disesuaikan untuk penggunaan yang intuitif, menawarkan Fast Hybrid AF yang disempurnakan, yang menghadirkan fokus super cepat, cakupan super lebar, dan pelacakan efektif untuk subjek yang bergerak dengan cepat.', 'Memory SDXC 64GB x1\r\nï»¿Memory SDHC 32GB x1\r\nï»¿Battery NP-FW50 x4\r\nTriple Dock Charger\r\nï»¿Bag', '24.3MP Full-Frame Exmor CMOS Sensor\r\nï»¿BIONZ X Image Processor\r\nï»¿5-Axis SteadyShot INSIDE Stabilization\r\nï»¿Enhanced Fast Hybrid AF and 5 fps Burst\r\nï»¿Full HD XAVC S Video and S-Log2 Gamma\r\nï»¿3.0&quot; 1,228.8k-Dot Tilting LCD Monitor\r\nï»¿XGA 2.36M-Dot OLED Electronic Viewfinder\r\nï»¿Weather-Resistant Magnesium Alloy Body\r\nï»¿Refined Grip &amp; Robust Lens Mount\r\nï»¿Built-In Wi-Fi Connectivity with NFC', 24, 200000),
+(5, '62d76023f1949.jpg', 'Canon G7 X Mark II', 'Canon', 'Kamera terlaris yang dikemas dengan sensor besar dalam bodi yang ramping dan ringkas, sekarang memiliki model generasi kedua yang baru dan lebih baik. Kamera ini menampilkan prosesor gambar DIGIC 7 baru, yang tidak hanya menyempurnakan penampilan foto yang diambil dalam kondisi rendah cahaya, tetapi juga memungkinkan penggambaran kontras yang lebih alami pada pemandangan cahaya latar, sehingga bidikan menghasilkan resolusi tinggi yang tampak nyata. ', 'Memory SDXC 64GB\r\nMemory SDHC 32GB\r\nBattery x3\r\nCharger\r\nBag', 'Sensor: 20.1MP 1-inch CMOS sensor.\r\nLens: 24-100mm f/1.8-2.8.\r\nScreen: 3.0-inch tilting touchscreen, 1,040,000 dots.\r\nViewfinder: N/A.\r\nBurst shooting: 8fps.\r\nAutofocus: 31-point AF.\r\nVideo: 1080p.\r\nConnectivity: Wi-Fi and NFC.', 28, 125000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ulasan`
+--
+
+CREATE TABLE `ulasan` (
+  `id` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `pesan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ulasan`
+--
+
+INSERT INTO `ulasan` (`id`, `id_product`, `id_user`, `rating`, `pesan`) VALUES
+(1, 1, 3, 5, 'Produk bagus, pelayanan ramah');
 
 -- --------------------------------------------------------
 
@@ -107,15 +131,19 @@ CREATE TABLE `user` (
   `nama` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `gambar` varchar(255) NOT NULL
+  `gambar` varchar(255) NOT NULL,
+  `noHP` varchar(30) NOT NULL,
+  `alamat` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `email`, `password`, `gambar`) VALUES
-(3, 'Gilang Pradana', 'gilang.arya.pradana272001@gmail.com', '202cb962ac59075b964b07152d234b70', 'Profile.jpg');
+INSERT INTO `user` (`id`, `nama`, `email`, `password`, `gambar`, `noHP`, `alamat`) VALUES
+(1, 'Gilang Arya Pradana', 'gilang.arya.pradana@gmail.com', '6d8f8a1a4837f099459ec46a72660f30', 'Profile.jpg', '', ''),
+(2, 'Dodi Firmansyah', 'dodi.firmansyah@gmail.com', 'bcfeb3c97660cbaabb9fc3a345465f3f', 'Profile.jpg', '', ''),
+(3, 'Reza Akbar', 'reza.akbar@gmail.com', '3ed6e995474bc6dddef7a6fc9b97c965', 'Profile.jpg', '0821101014143', 'Jl. Ahmad Yani, Surabaya');
 
 --
 -- Indexes for dumped tables
@@ -140,6 +168,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ulasan`
+--
+ALTER TABLE `ulasan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -159,12 +193,18 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `ulasan`
+--
+ALTER TABLE `ulasan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --

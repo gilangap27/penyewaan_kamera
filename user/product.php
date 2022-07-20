@@ -60,7 +60,7 @@ if ($_SESSION['pembayaran'] == true) {
             });
     </script>
 <?php
-    $_SESSION['pembayaran'] = false;
+    unset($_SESSION['pembayaran']);
 }
 
 ?>

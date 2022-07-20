@@ -2,28 +2,6 @@
 
 <?php require './user/template/header.php'; ?>
 
-<?php
-
-if (isset($_POST['register'])) {
-    if (register($_POST)) {
-        echo "
-			 <script>
-				alert('Register berhasil');
-				document.location.href = './login.php';
-			 </script>
-			 ";
-    } else {
-        echo "
-			 <script>
-				alert('Register gagal');
-				document.location.href = './register.php';
-			 </script>
-			 ";
-    }
-}
-
-?>
-
 <div class="container text-center" style="width: 500px;">
     <h2 class="my-5">Register Page</h2>
     <form action="" method="POST">
@@ -70,3 +48,29 @@ if (isset($_POST['register'])) {
 </div>
 
 <?php require './user/template/footer.php'; ?>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<?php
+if (isset($_POST['register'])) {
+    if (register($_POST)) {
+?>
+        <script>
+            swal("Selamat!", "Registrasi anda berhasil!", "success")
+                .then(function() {
+                    window.location = "./login.php";
+                });
+        </script>
+    <?php
+    } else {
+    ?>
+        <script>
+            swal("Maaf!", "Registrasi anda gagal!", "error")
+                .then(function() {
+                    window.location = "./register.php";
+                });
+        </script>
+<?php
+    }
+}
+?>

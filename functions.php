@@ -31,7 +31,7 @@ function tambah_product($data)
     $harga =  htmlspecialchars($data['harga']);
 
     //upload gambar
-    $gambar = upload();
+    $gambar = upload_product();
     if (!$gambar) {
         return false;
     }
@@ -54,7 +54,7 @@ function tambah_product($data)
     // mysqli_affected_rows($con) = angka (0: gak ada data masuk, 1:ada data masuk)
 }
 
-function upload()
+function upload_product()
 {
     $namaFile = $_FILES['gambar']['name'];
     $tempName = $_FILES['gambar']['tmp_name'];
@@ -93,7 +93,7 @@ function ubah_product($data)
     if ($_FILES['gambar']['error'] === 4) {
         $gambar = $gambarAwal;
     } else {
-        $gambar = upload();
+        $gambar = upload_product();
     }
 
     $query = "UPDATE product SET
@@ -131,6 +131,8 @@ function tambah_pembayaran($data)
     $email = htmlspecialchars($data['email']);
     $nama = htmlspecialchars($data['nama']);
     $alamat = htmlspecialchars($data['alamat']);
+    $dp = htmlspecialchars($data['dp']);
+    $metode = htmlspecialchars($data['metode']);
 
     $detailKamera = query("SELECT * FROM product WHERE id = $id_kamera")[0];
 
@@ -155,6 +157,8 @@ function tambah_pembayaran($data)
             '$lama_sewa',
             '$tanggal_sewa',
             '$tanggal_kembali',
+            '$dp',
+            '$metode',
             '$status')";
 
     mysqli_query($con, $query);
@@ -262,4 +266,79 @@ function tambah_ulasan($data)
 
     return mysqli_affected_rows($con);
     // mysqli_affected_rows($con) = angka (0: gak ada data masuk, 1:ada data masuk)
+}
+
+function ubah_profile($data)
+{
+    $con = koneksi();
+
+    $id = $data["id"];
+    $nama = htmlspecialchars($data['nama']);
+    $email = htmlspecialchars($data['email']);
+    $noHP = htmlspecialchars($data['noHP']);
+    $alamat =  htmlspecialchars($data['alamat']);
+    $gambarAwal = $data["gambarAwal"];
+
+    //cek apakah user pilih gambar baru atau tidak
+    if ($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarAwal;
+    } else {
+        $gambar = upload_profile();
+    }
+
+    $query = "UPDATE user SET
+                gambar = '$gambar',
+                nama = '$nama',
+                email = '$email',
+                noHP = '$noHP',
+                alamat = '$alamat'
+               WHERE id = $id
+            ";
+
+    mysqli_query($con, $query);
+
+    return mysqli_affected_rows($con);
+}
+
+function upload_profile()
+{
+    $namaFile = $_FILES['gambar']['name'];
+    $tempName = $_FILES['gambar']['tmp_name'];
+
+    $ekstensiGambar = pathinfo($namaFile, PATHINFO_EXTENSION);
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
+
+    // upload gambar
+    if (move_uploaded_file($tempName, '../img/user/' . $namaFileBaru)) {
+        echo "Uploaded";
+    } else {
+        echo "File not uploaded";
+        return false;
+    }
+
+    return $namaFileBaru;
+}
+
+function detail_pembayaran($data)
+{
+    $con = koneksi();
+
+    $id = $data["id"];
+    $bayar = htmlspecialchars($data['bayar']);
+
+    $pembayaran = query("SELECT * FROM pembayaran WHERE id = $id")[0];
+
+    $query = "UPDATE pembayaran SET status = 'Complete' WHERE id = $id";
+
+    $total_bayar = $pembayaran['total'] - $pembayaran['dp'];
+
+    if ($bayar == $total_bayar) {
+        mysqli_query($con, $query);
+    } else {
+        return 0;
+    }
+
+    return mysqli_affected_rows($con);
 }

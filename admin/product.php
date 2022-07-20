@@ -25,7 +25,12 @@ $products = query("SELECT * FROM product");
                     </tr>
                 </thead>
                 <tbody>
-
+                    <!-- Cek jika data kosong -->
+                    <?php if (!$products) : ?>
+                        <tr>
+                            <td colspan="4" class="text-center">Data Kosong</td>
+                        </tr>
+                    <?php endif; ?>
                     <!-- looping -->
                     <?php $i = 1;
                     foreach ($products as $pro) : ?>

@@ -28,6 +28,13 @@ $pembayaran = query("SELECT * FROM pembayaran");
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Cek jika data kosong -->
+                    <?php if (!$pembayaran) : ?>
+                        <tr>
+                            <td colspan="8" class="text-center">Data Kosong</td>
+                        </tr>
+                    <?php endif; ?>
+                    <!-- Looping -->
                     <?php foreach ($pembayaran as $pemb) : ?>
                         <?php $kamera = query("SELECT * FROM product WHERE id = " . $pemb['id_product'])[0];
                         ?>
@@ -42,7 +49,9 @@ $pembayaran = query("SELECT * FROM pembayaran");
                                 <span class="badge text-white"><?= $pemb['status']; ?></span>
                             </td>
                             <td>
-                                <span class="badge badge-primary"><a href="./edit_transaction.php?id=<?= $pemb['id'] ?>">Edit</a></span>
+                                <?php if ($pemb['status'] == 'Pending') : ?>
+                                    <span class="badge badge-primary"><a href="./detail_transaction.php?id=<?= $pemb['id'] ?>">Detail</a></span>
+                                <?php endif; ?>
                                 <span class="badge badge-danger"><a href="" data-bs-toggle="modal" data-bs-target="#hapusModal">Delete</a></span>
                             </td>
                         </tr>

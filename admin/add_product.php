@@ -83,7 +83,7 @@ if (!isset($_SESSION['id_admin'])) {
 
 <?php
 if (isset($_POST['submit'])) {
-    if (tambah_product($_POST)) {
+    if (tambah_product($_POST) > 0) {
 ?>
         <script>
             swal("Selamat!", "Data berhasil ditambahkan!", "success")

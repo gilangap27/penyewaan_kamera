@@ -53,7 +53,7 @@ if (isset($_SESSION['id_user'])) {
             <div class="tab-pane container fade" id="pro">
                 <!-- Form Ulasan - Start -->
                 <h4>Ulasan</h4>
-                <p>Kirim ulasan anda terkait produk ini</p>
+                <p>Beri ulasan anda terkait produk ini</p>
                 <?php if (isset($_SESSION['id_user'])) : ?>
                     <form action="./tambah_ulasan.php" method="post">
                         <input type="hidden" name="id_kamera" value="<?= $product['id'] ?>">
@@ -98,6 +98,22 @@ if (isset($_SESSION['id_user'])) {
 
 <?php require './template/footer.php' ?>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<?php
+if ($_SESSION['ulasan'] == true) {
+?>
+    <script>
+        swal("Selamat!", "Ulasan anda berhasil!", "success")
+            .then(function() {
+                window.location = "./detail.php?id=<?= $id ?>";
+            });
+    </script>
+<?php
+    unset($_SESSION['ulasan']);
+}
+?>
+
 <?php if (isset($_SESSION['id_user'])) : ?>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -133,13 +149,19 @@ if (isset($_SESSION['id_user'])) {
                                 </div>
                             </div>
                             <!-- Quantity - End -->
-                            <div class="mb-3">
-                                <label for="produk" class="col-form-label">Tanggal Sewa</label>
-                                <input type="date" class="form-control" name="tanggal_sewa" id="produk" value="<?= date('Y-m-d') ?>" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="produk" class="col-form-label">Email Penyewa</label>
-                                <input type="email" class="form-control" name="email" id="produk" value="<?= $user['email'] ?>">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="produk" class="col-form-label">Tanggal Sewa</label>
+                                        <input type="date" class="form-control" name="tanggal_sewa" id="produk" value="<?= date('Y-m-d') ?>" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="produk" class="col-form-label">Email Penyewa</label>
+                                        <input type="email" class="form-control" name="email" id="produk" value="<?= $user['email'] ?>">
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="produk" class="col-form-label">Nama Penyewa</label>
@@ -147,17 +169,68 @@ if (isset($_SESSION['id_user'])) {
                             </div>
                             <div class="mb-3">
                                 <label for="produk" class="col-form-label">Alamat Penyewa</label>
-                                <textarea class="form-control" name="alamat" id="message-text" rows="3" required></textarea>
+                                <textarea class="form-control" name="alamat" id="message-text" rows="3" required><?= $user['alamat'] ?></textarea>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-dark">Booking</button>
-                        </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Rp. </span>
+                                <input type="text" class="form-control" name="dp" id="dp" value="<?= $product['harga'] * 0.05 ?>" readonly>
+                                <span class="input-group-text">.00</span>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Metode Pembayaran</h6>
+                                <div class="leftside">
+                                    <label class="labelexpanded">
+                                        <input type="radio" name="metode" value="bca" required>
+                                        <div class="radio-btns">
+                                            <img src="<?= $ROOT; ?>img/bca.png" />
+                                        </div>
+                                        </input>
+                                    </label>
+
+                                    <label class="labelexpanded">
+                                        <input type="radio" name="metode" value="dana">
+                                        <div class="radio-btns"> <img src="<?= $ROOT; ?>img/dana.png">
+                                        </div>
+                                    </label>
+
+                                    <label class="labelexpanded">
+                                        <input type="radio" name="metode" value="visa">
+                                        <div class="radio-btns"> <img src="<?= $ROOT; ?>img/visa.png">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-dark">Sewa</button>
+                            </div>
                     </form>
                 </div>
             </div>
         </div>
-    <?php endif ?>
+    </div>
+<?php endif ?>
 
-    <script src="../js/script.js"></script>
+<script>
+    const tambahBtn = document.getElementById('tambahBtn');
+    const kurangBtn = document.getElementById('kurangBtn');
+    const quantityInput = document.getElementById('quantity');
+
+    tambahBtn.addEventListener('click', function(e) {
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+        updateDP();
+    });
+
+    kurangBtn.addEventListener('click', function(e) {
+        if (quantityInput.value > 1) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+            updateDP();
+        }
+    });
+
+    function updateDP() {
+        const dp = document.getElementById('dp');
+        let dpValue = quantityInput.value * <?= $product['harga'] * 0.05 ?>;
+        dp.value = dpValue;
+    }
+</script>

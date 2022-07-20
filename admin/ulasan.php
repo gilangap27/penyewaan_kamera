@@ -25,6 +25,13 @@ $ulasan = query("SELECT * FROM ulasan");
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Cek jika data kosong -->
+                    <?php if (!$ulasan) : ?>
+                        <tr>
+                            <td colspan="5" class="text-center">Data Kosong</td>
+                        </tr>
+                    <?php endif; ?>
+                    <!-- Looping -->
                     <?php foreach ($ulasan as $ul) : ?>
                         <?php $kamera = query("SELECT * FROM product WHERE id=" . $ul['id_product'])[0] ?>
                         <?php $user = query("SELECT * FROM user WHERE id=" . $ul['id_user'])[0] ?>

@@ -59,7 +59,7 @@
             <div class="col">
                 <div class="card-columns-fluid">
                     <div class="card mb-5 mr-3" style="width: 350px;">
-                        <img src="./img/product/<?= $pro['gambar'] ?>" class="card-img-top img-preview" alt="kamera">
+                        <img src="./img/product/<?= $pro['gambar'] ?>" class="card-img-top" alt="kamera">
                         <div class="card-body">
                             <h5 class="card-title"><?= $pro['nama']; ?></h5>
                             <p class="card-text">1 Hari - Rp. <?= number_format($pro['harga'], 2); ?></p>

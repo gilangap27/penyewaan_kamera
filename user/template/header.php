@@ -47,11 +47,11 @@ session_start();
                         <li class="nav-item dropdown no-arrow ms-5">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['nama']; ?></span>
-                                <img class="img-profile rounded-circle" src="<?= $ROOT ?>/img/user/<?= $user['gambar'] ?>" width="30">
+                                <img class="rounded-circle" src="<?= $ROOT ?>/img/user/<?= $user['gambar'] ?>" width="30">
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Booking List</a></li>
+                                <li><a class="dropdown-item" href="<?= $ROOT ?>user/profile.php"><i class="fa-solid fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="<?= $ROOT ?>user/booking_list.php"><i class="fa-solid fa-list"></i> Booking List</a></li>
                                 <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                             </ul>
                         </li>

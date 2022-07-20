@@ -94,7 +94,7 @@ $product = query('SELECT * FROM product WHERE id = ' . $id)[0];
 
 <?php
 if (isset($_POST['submit'])) {
-    if (ubah_product($_POST)) {
+    if (ubah_product($_POST) > 0) {
 ?>
         <script>
             swal("Selamat!", "Data berhasil diupdate!", "success")

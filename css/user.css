@@ -58,12 +58,6 @@ pre {
     height: 250px;
 }
 
-.img-preview {
-    object-fit: cover;
-    width: 350px;
-    height: 350px;
-}
-
 icon-shape {
     display: inline-flex;
     align-items: center;
@@ -107,6 +101,7 @@ li {
 }
 
 .radio-btns {
+    border: 1px solid #cfcfcf;
     height: 80px;
     border-radius: 10px;
     position: relative;
