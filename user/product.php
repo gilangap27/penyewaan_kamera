@@ -51,7 +51,7 @@ if (isset($_POST["cari"])) {
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 <?php
-if ($_SESSION['pembayaran'] == true) {
+if (isset($_SESSION['pembayaran'])) {
 ?>
     <script>
         swal("Selamat!", "Pembayaran anda berhasil!", "success")

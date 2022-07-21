@@ -2,15 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION['id_admin'])) {
-	header("Location: ./index.php");
-}
-
 require '../functions.php';
 
 $id = $_POST['id_kamera'];
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["ulasan"])) {
 
 	if (tambah_ulasan($_POST) > 0) {
 		$_SESSION['ulasan'] = true;

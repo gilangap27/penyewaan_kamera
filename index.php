@@ -74,16 +74,18 @@
 </div>
 <!-- New - End -->
 
-<!-- Testimoni - Start -->
+<!-- Ulasan - Start -->
 <div class="container my-5 p-4 rounded" style="background-color: rgba(199, 199, 199, 0.2)">
     <h3 class="text-center mb-5">Ulasan</h3>
     <div class="row justify-content-around">
         <?php foreach ($ulasan as $ul) : ?>
             <?php $user = query('SELECT * FROM user WHERE id = ' . $ul['id_user'])[0] ?>
+            <?php $kamera = query('SELECT * FROM product WHERE id = ' . $ul['id_product'])[0] ?>
             <div class="col-3 text-center">
                 <img src="<?= $ROOT ?>img/user/<?= $user['gambar'] ?>" class="rounded-circle" alt="profile" width="150px" height="150px" style="object-fit: cover;">
                 <div class="mt-5">
                     <h5 class="mb-3"><?= $user['nama']; ?></h5>
+                    <h6 class="mb-3">"<?= $kamera['nama']; ?>"</h6>
                     <p>
                         <i class="fas fa-quote-left fa-xl text-primary"></i>
                         <?= $ul['pesan']; ?>
@@ -94,7 +96,7 @@
         <?php endforeach; ?>
     </div>
 </div>
-<!-- Testimoni - End -->
+<!-- Ulasan - End -->
 
 <?php require './user/template/footer.php' ?>
 

@@ -66,7 +66,7 @@ if (isset($_SESSION['id_user'])) {
                         <p class="mb-0">Rating</p>
                         <div class="feedback">
                             <div class="rating mb-3">
-                                <input type="radio" name="rating" id="rating-5" value="5">
+                                <input type="radio" name="rating" id="rating-5" value="5" required>
                                 <label for="rating-5"></label>
                                 <input type="radio" name="rating" id="rating-4" value="4">
                                 <label for="rating-4"></label>
@@ -81,9 +81,9 @@ if (isset($_SESSION['id_user'])) {
                         <!-- Star Rating - End -->
                         <div class="form-group mb-3">
                             <label for="message">Ulasan</label>
-                            <textarea class="form-control" id="message" name="pesan" rows="3"></textarea>
+                            <textarea class="form-control" id="message" name="pesan" rows="3" required></textarea>
                         </div>
-                        <button type="submit" name="submit" class="btn btn-primary">Kirim</button>
+                        <button type="submit" name="ulasan" class="btn btn-primary">Kirim</button>
                     </form>
                 <?php else : ?>
                     <p class="text-danger">Kamu harus login untuk bisa mengirim ulasan</p>
@@ -101,7 +101,7 @@ if (isset($_SESSION['id_user'])) {
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 <?php
-if ($_SESSION['ulasan'] == true) {
+if (isset($_SESSION['ulasan'])) {
 ?>
     <script>
         swal("Selamat!", "Ulasan anda berhasil!", "success")
@@ -202,7 +202,7 @@ if ($_SESSION['ulasan'] == true) {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-dark">Sewa</button>
+                                <button type="submit" name="submit" class="btn btn-dark">Sewa</button>
                             </div>
                     </form>
                 </div>
