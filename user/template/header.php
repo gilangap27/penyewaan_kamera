@@ -47,7 +47,7 @@ session_start();
                         <li class="nav-item dropdown no-arrow ms-5">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['nama']; ?></span>
-                                <img class="rounded-circle" src="<?= $ROOT ?>/img/user/<?= $user['gambar'] ?>" width="30">
+                                <img class="rounded-circle" src="<?= $ROOT ?>/img/user/<?= $user['gambar'] ?>" width="30" height="30" style="object-fit: cover;">
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="<?= $ROOT ?>user/profile.php"><i class="fa-solid fa-user"></i> Profile</a></li>

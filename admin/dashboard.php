@@ -93,6 +93,11 @@ $pending = query("SELECT COUNT(*) AS total FROM pembayaran WHERE status = 'Pendi
     </div>
 </div>
 
+<div class="container text-center bg-white p-5">
+    <h1>Welcome Admin</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis molestiae vel autem quam cumque omnis nulla vitae illo ut possimus, debitis odit eius, cum eligendi laudantium? Ut nam alias vero, architecto, velit cum cumque sapiente quam aliquam exercitationem totam veritatis laborum eos accusamus iusto? Enim fugiat debitis repellat odio velit inventore officia. Aut nemo, harum ullam laborum, nobis nulla voluptates reprehenderit et, vitae natus officiis consequuntur! Vitae illo maxime praesentium optio reprehenderit unde tenetur odit debitis laborum deleniti ipsum blanditiis tempore laudantium laboriosam soluta fugiat sint labore, qui eveniet, consectetur amet voluptatum! Numquam beatae voluptates quasi adipisci, nisi distinctio nihil!</p>
+</div>
+
 <!-- Content Row -->
 
 <?php include './templates/footer.php' ?>

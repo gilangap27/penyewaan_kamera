@@ -3,6 +3,7 @@
 <?php require './user/template/header.php'; ?>
 
 <?php $products = query('SELECT * FROM product ORDER BY id DESC LIMIT 3'); ?>
+<?php $ulasan = query('SELECT * FROM ulasan WHERE rating = 5 ORDER BY id DESC LIMIT 3') ?>
 
 <!-- Carousel - Start -->
 <div class="container">
@@ -22,7 +23,7 @@
         <div class="col text-center">
             <img src="./img/fast.svg" alt="fast" style="width: 150px;">
             <div class="mt-5">
-                <h5 class="card-title mb-3">Pengiriman Cepat</h5>
+                <h5 class="card-title mb-3">Respon Cepat</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                     the
                     card's content.</p>
@@ -74,42 +75,23 @@
 <!-- New - End -->
 
 <!-- Testimoni - Start -->
-<div class="container my-5 py-4 rounded" style="background-color: rgba(199, 199, 199, 0.2)">
-    <h3 class="text-center mb-4">Ulasan</h3>
-    <div class="row">
-        <div class="col text-center">
-            <img src="./img/profile_temp.jpg" class="rounded-circle" alt="profile" style="width: 150px;">
-            <div class="mt-5">
-                <h5 class="mb-3">Profile 1</h5>
-                <p>
-                    <i class="fas fa-quote-left fa-xl text-primary"></i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam dolorum doloribus magnam tempore officiis, pariatur nihil quasi eum voluptatum sunt! Soluta ullam culpa saepe sit eveniet inventore atque assumenda voluptatem ut ipsum libero, repellat nulla sequi rerum aliquid quos? Reiciendis?
-                    <i class="fas fa-quote-right fa-xl text-primary"></i>
-                </p>
+<div class="container my-5 p-4 rounded" style="background-color: rgba(199, 199, 199, 0.2)">
+    <h3 class="text-center mb-5">Ulasan</h3>
+    <div class="row justify-content-around">
+        <?php foreach ($ulasan as $ul) : ?>
+            <?php $user = query('SELECT * FROM user WHERE id = ' . $ul['id_user'])[0] ?>
+            <div class="col-3 text-center">
+                <img src="<?= $ROOT ?>img/user/<?= $user['gambar'] ?>" class="rounded-circle" alt="profile" width="150px" height="150px" style="object-fit: cover;">
+                <div class="mt-5">
+                    <h5 class="mb-3"><?= $user['nama']; ?></h5>
+                    <p>
+                        <i class="fas fa-quote-left fa-xl text-primary"></i>
+                        <?= $ul['pesan']; ?>
+                        <i class="fas fa-quote-right fa-xl text-primary"></i>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="col text-center">
-            <img src="./img/profile_temp.jpg" class="rounded-circle" alt="profile" style="width: 150px;">
-            <div class="mt-5">
-                <h5 class="mb-3">Profile 2</h5>
-                <p>
-                    <i class="fas fa-quote-left fa-xl text-primary"></i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam dolorum doloribus magnam tempore officiis, pariatur nihil quasi eum voluptatum sunt! Soluta ullam culpa saepe sit eveniet inventore atque assumenda voluptatem ut ipsum libero, repellat nulla sequi rerum aliquid quos? Reiciendis?
-                    <i class="fas fa-quote-right fa-xl text-primary"></i>
-                </p>
-            </div>
-        </div>
-        <div class="col text-center">
-            <img src="./img/profile_temp.jpg" class="rounded-circle" alt="profile" style="width: 150px;">
-            <div class="mt-5">
-                <h5 class="mb-3">Profile 3</h5>
-                <p>
-                    <i class="fas fa-quote-left fa-xl text-primary"></i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam dolorum doloribus magnam tempore officiis, pariatur nihil quasi eum voluptatum sunt! Soluta ullam culpa saepe sit eveniet inventore atque assumenda voluptatem ut ipsum libero, repellat nulla sequi rerum aliquid quos? Reiciendis?
-                    <i class="fas fa-quote-right fa-xl text-primary"></i>
-                </p>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- Testimoni - End -->

@@ -10,9 +10,7 @@
                 <h6 class="text-uppercase fw-bold">SewaKamera</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam possimus deleniti ipsa veniam
-                    aliquid culpa. Suscipit pariatur modi, dolor natus quibusdam dolorem laboriosam amet blanditiis
-                    quasi aperiam neque placeat dolores.
+                    SewaKamera adalah jasa penyewaan peralatan foto yang penuh dengan dedikasi yang didirikan pada 04-06-2022. SewaKamera menyediakan berbagai kamera, lensa, dan aksesoris untuk kebutuhan hobi serta pekerjaan anda, dengan harga yang terjangkau dan pelayanan dari hati untuk anda.
                 </p>
             </div>
             <!-- Grid column -->

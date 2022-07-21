@@ -187,7 +187,7 @@ function register($data)
     // Enkripsi Password
     $password = md5($password);
 
-    $query = "INSERT INTO user VALUES (null,'$nama','$email','$password', '$gambar')";
+    $query = "INSERT INTO user VALUES (null,'$nama','$email','$password', '$gambar', '','')";
 
     mysqli_query($con, $query);
 

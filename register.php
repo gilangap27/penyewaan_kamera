@@ -53,7 +53,7 @@
 
 <?php
 if (isset($_POST['register'])) {
-    if (register($_POST)) {
+    if (register($_POST) > 0) {
 ?>
         <script>
             swal("Selamat!", "Registrasi anda berhasil!", "success")

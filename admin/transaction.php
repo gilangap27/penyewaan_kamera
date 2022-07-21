@@ -48,9 +48,9 @@ $pembayaran = query("SELECT * FROM pembayaran");
                             <td>
                                 <span class="badge text-white"><?= $pemb['status']; ?></span>
                             </td>
-                            <td>
+                            <td style="width: 125px;">
                                 <?php if ($pemb['status'] == 'Pending') : ?>
-                                    <span class="badge badge-primary"><a href="./detail_transaction.php?id=<?= $pemb['id'] ?>">Detail</a></span>
+                                    <span class="badge badge-primary"><a href="./detail_transaction.php?id=<?= $pemb['id'] ?>">Bayar</a></span>
                                 <?php endif; ?>
                                 <span class="badge badge-danger"><a href="" data-bs-toggle="modal" data-bs-target="#hapusModal">Delete</a></span>
                             </td>
