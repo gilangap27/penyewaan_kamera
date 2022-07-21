@@ -342,3 +342,14 @@ function detail_pembayaran($data)
 
     return mysqli_affected_rows($con);
 }
+
+function cancel_booking($data)
+{
+    $con = koneksi();
+
+    $id = $data["id"];
+    $query = "UPDATE pembayaran SET status = 'Canceled' WHERE id = $id";
+
+    mysqli_query($con, $query);
+    return mysqli_affected_rows($con);
+}

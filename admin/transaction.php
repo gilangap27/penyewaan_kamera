@@ -85,7 +85,6 @@ $pembayaran = query("SELECT * FROM pembayaran");
 <script>
     const badges = document.querySelectorAll('.badge');
     badges.forEach(badge => {
-        console.log(badge.textContent);
         switch (badge.textContent) {
             case "Pending":
                 badge.classList.add('bg-warning');

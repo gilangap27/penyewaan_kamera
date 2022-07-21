@@ -9,7 +9,7 @@ $ulasan = query("SELECT * FROM ulasan");
 ?>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Message</h1>
+<h1 class="h3 mb-2 text-gray-800">Ulasan</h1>
 
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -39,7 +39,7 @@ $ulasan = query("SELECT * FROM ulasan");
                             <td><?= $user['nama']; ?></td>
                             <td><?= $user['email']; ?></td>
                             <td><?= $kamera['nama']; ?></td>
-                            <td><?= $ul['rating']; ?> Star</td>
+                            <td><?= $ul['rating']; ?> <i class="fa-solid fa-star"></i></td>
                             <td><?= $ul['pesan']; ?></td>
                         </tr>
                     <?php endforeach; ?>
