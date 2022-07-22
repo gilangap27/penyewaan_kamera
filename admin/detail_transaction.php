@@ -25,47 +25,38 @@ $kamera = query('SELECT * FROM product WHERE id = ' . $pembayaran['id_product'])
             <div class="row">
                 <div class="col">
                     <!-- Name -->
-                    <label class="form-label">Name Penyewa</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="<?= $pembayaran['nama_penyewa']; ?>" readonly>
-                    </div>
+                    <b>Nama Penyewa : </b>
+                    <p><?= $pembayaran['nama_penyewa']; ?></p>
                 </div>
                 <div class="col">
                     <!-- Email -->
-                    <label class="form-label">Email Penyewa</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="<?= $pembayaran['email_penyewa']; ?>" readonly>
-                    </div>
+                    <b>Nama Penyewa : </b>
+                    <p><?= $pembayaran['email_penyewa']; ?></p>
                 </div>
             </div>
             <!-- Alamat -->
-            <label class="form-label">Alamat Penyewa</label>
-            <div class="input-group mb-3">
-                <textarea type="text" class="form-control" rows="3" readonly><?= $pembayaran['alamat']; ?></textarea>
-            </div>
+            <b>Alamat Penyewa : </b>
+            <p><?= $pembayaran['alamat']; ?></p>
             <div class="row">
                 <div class="col-6">
                     <!-- Name Product -->
-                    <label class="form-label">Nama Product</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="<?= $kamera['nama']; ?>" readonly>
-                    </div>
+                    <b>Nama Product : </b>
+                    <p><?= $kamera['nama']; ?></p>
                 </div>
                 <div class="col-2">
                     <!-- Lama Sewa -->
-                    <label class="form-label">Lama Sewa</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="<?= $pembayaran['lama_sewa']; ?>" readonly>
-                    </div>
+                    <b>Lama Sewa : </b>
+                    <p><?= $pembayaran['lama_sewa']; ?></p>
                 </div>
                 <div class="col">
                     <!-- Total Sewa -->
-                    <div class="input-group mb-3">
-                        <label class="form-label">Tanggal Sewa</label>
-                        <div class="input-group mb-3">
-                            <input type="date" class="form-control" value="<?= $pembayaran['tanggal_sewa'] ?>" readonly>
-                        </div>
-                    </div>
+                    <b>Tanggal Sewa : </b>
+                    <p><?= $pembayaran['tanggal_sewa']; ?></p>
+                </div>
+                <div class="col">
+                    <!-- Total Sewa -->
+                    <b>Tanggal Kembali : </b>
+                    <p><?= $pembayaran['tanggal_kembali']; ?></p>
                 </div>
             </div>
 
@@ -74,36 +65,24 @@ $kamera = query('SELECT * FROM product WHERE id = ' . $pembayaran['id_product'])
             <div class="row">
                 <div class="col">
                     <!-- Total Sewa -->
-                    <label class="form-label">Total Sewa</label>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Rp. </span>
-                        <input type="text" class="form-control" value="<?= $pembayaran['total']; ?>" readonly>
-                        <span class="input-group-text">.00</span>
-                    </div>
+                    <b>Total Sewa : </b>
+                    <p>Rp. <?= number_format($pembayaran['total'], 2); ?></p>
                 </div>
                 <div class="col">
                     <!-- DP Sewa -->
-                    <label class="form-label">Uang Muka (DP)</label>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Rp. </span>
-                        <input type="text" class="form-control" value="<?= $pembayaran['dp']; ?>" readonly>
-                        <span class="input-group-text">.00</span>
-                    </div>
+                    <b>Uang Muka (DP) : </b>
+                    <p>Rp. <?= number_format($pembayaran['dp'], 2); ?></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <!-- Total Bayar -->
-                    <label class="form-label">Total Bayar</label>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Rp. </span>
-                        <input type="text" class="form-control" value="<?= $pembayaran['total'] - $pembayaran['dp']; ?>" readonly>
-                        <span class="input-group-text">.00</span>
-                    </div>
+                    <b>Total Sewa : </b>
+                    <p>Rp. <?= number_format($pembayaran['total'] - $pembayaran['dp'], 2); ?></p>
                 </div>
                 <div class="col">
                     <!-- Bayar Sewa -->
-                    <label class="form-label">Bayar</label>
+                    <label class="form-label"><b>Bayar</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Rp. </span>
                         <input type="number" class="form-control" name="bayar" required>
@@ -128,20 +107,22 @@ if (isset($_POST['submit'])) {
     if (detail_pembayaran($_POST) > 0) {
 ?>
         <script>
-            swal("Selamat!", "Pembayaran berhasil!", "success")
+            swal("Selamat!", "Pembayaran berhasil!<br><?php if (isset($_SESSION['kembalian'])) {
+                                                            echo "Kembalian anda Rp. " . number_format($_SESSION['kembalian'], 2);
+                                                            unset($_SESSION['kembalian']);
+                                                        } ?>", "success")
                 .then(function() {
                     window.location = "./transaction.php";
-                });;
+                });
         </script>
     <?php
     } else {
-        var_dump("gagal");
     ?>
         <script>
             swal("Maaf!", "Pembayaran tidak sesuai!", "error")
                 .then(function() {
                     window.location = "./detail_transaction.php?id=<?= $id ?>";
-                });;
+                });
         </script>
 <?php
     }

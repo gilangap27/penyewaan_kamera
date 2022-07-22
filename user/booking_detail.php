@@ -31,7 +31,7 @@ $kamera = query("SELECT * FROM product WHERE id = " . $pembayaran['id_product'])
                     </div>
                     <?php if ($pembayaran['status'] == 'Pending') : ?>
                         <div class="mt-2">
-                            <a href="<?= $ROOT ?>user/cancel_booking.php?id=<?= $id ?>" class="btn btn-danger"><i class="fa-solid fa-x"></i> Cancel Sewa</a>
+                            <a href="<?= $ROOT ?>user/cancel_booking.php?id=<?= $id ?>" class="btn btn-danger">Cancel Sewa</a>
                         </div>
                     <?php endif; ?>
                 </div>

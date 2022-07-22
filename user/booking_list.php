@@ -2,6 +2,12 @@
 
 <?php require './template/header.php' ?>
 
+<style>
+    .product-link {
+        text-decoration: none;
+    }
+</style>
+
 <?php $user = query('SELECT * FROM user WHERE id = ' . $_SESSION['id_user'])[0] ?>
 
 <?php $pembayaran = query("SELECT * FROM pembayaran WHERE nama_penyewa = '" . $user['nama'] . "'") ?>
@@ -27,8 +33,10 @@
                         <img src="../img/product/<?= $kamera['gambar'] ?>" alt="kamera" width="75px" height="75px">
                     </th>
                     <td class="align-middle">
-                        <b><?= $kamera['brand'] ?></b>
-                        <p><?= $kamera['nama'] ?></p>
+                        <a class="product-link text-dark" href="detail.php?id=<?= $kamera['id'] ?>">
+                            <b><?= $kamera['brand'] ?></b>
+                            <p><?= $kamera['nama'] ?></p>
+                        </a>
                     </td>
                     <td style="vertical-align: middle;">Rp. <?= number_format($pem['total'], 2) ?></td>
                     <td style="vertical-align: middle;"><?= $pem['tanggal_sewa'] ?></td>

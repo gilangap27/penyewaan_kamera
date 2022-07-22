@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
 
-$pembayaran = query("SELECT * FROM pembayaran");
+$pembayaran = query("SELECT * FROM pembayaran ORDER BY id DESC");
 ?>
 
 <!-- Page Heading -->
@@ -25,6 +25,7 @@ $pembayaran = query("SELECT * FROM pembayaran");
                         <th>Tanggal Kembali</th>
                         <th>Status</th>
                         <th>Aksi</th>
+                        <th>Bayar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,11 +49,21 @@ $pembayaran = query("SELECT * FROM pembayaran");
                             <td>
                                 <span class="badge text-white"><?= $pemb['status']; ?></span>
                             </td>
-                            <td style="width: 125px;">
+                            <td>
+                                <span class="badge badge-danger"><a href="" data-bs-toggle="modal" data-bs-target="#hapusModal">Delete</a></span>
+                            </td>
+                            <td>
                                 <?php if ($pemb['status'] == 'Pending') : ?>
                                     <span class="badge badge-primary"><a href="./detail_transaction.php?id=<?= $pemb['id'] ?>">Bayar</a></span>
+                                <?php elseif ($pemb['status'] == 'Complete') : ?>
+                                    <div class="text-center">
+                                        <i class="fa-solid fa-circle-check text-success"></i>
+                                    </div>
+                                <?php elseif ($pemb['status'] == 'Canceled') : ?>
+                                    <div class="text-center">
+                                        <i class="fa-solid fa-circle-exclamation text-danger"></i>
+                                    </div>
                                 <?php endif; ?>
-                                <span class="badge badge-danger"><a href="" data-bs-toggle="modal" data-bs-target="#hapusModal">Delete</a></span>
                             </td>
                         </tr>
                     <?php endforeach; ?>

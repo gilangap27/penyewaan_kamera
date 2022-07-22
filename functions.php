@@ -1,5 +1,4 @@
 <?php
-
 $ROOT = 'http://localhost/penyewaan_kamera/';
 
 function koneksi()
@@ -136,10 +135,6 @@ function tambah_pembayaran($data)
 
     $detailKamera = query("SELECT * FROM product WHERE id = $id_kamera")[0];
 
-    // Mengurangi Stok Kamera
-    $stok = $detailKamera['stok'] - 1;
-    mysqli_query($con, "UPDATE product SET stok = $stok WHERE id = $id_kamera");
-
     $total = $lama_sewa * $detailKamera['harga'];
     $tanggal_sewa = strtotime($data['tanggal_sewa']);
     $tanggal_sewa = date('Y-m-d', $tanggal_sewa);
@@ -159,11 +154,16 @@ function tambah_pembayaran($data)
             '$tanggal_kembali',
             '$dp',
             '$metode',
-            '$status')";
+            '$status',
+            0, 0)";
 
     mysqli_query($con, $query);
 
     echo mysqli_error($con);
+
+    // Mengurangi Stok Kamera
+    $stok = $detailKamera['stok'] - 1;
+    mysqli_query($con, "UPDATE product SET stok = $stok WHERE id = $id_kamera");
 
     return mysqli_affected_rows($con);
     // mysqli_affected_rows($con) = angka (0: gak ada data masuk, 1:ada data masuk)
@@ -330,14 +330,28 @@ function detail_pembayaran($data)
 
     $pembayaran = query("SELECT * FROM pembayaran WHERE id = $id")[0];
 
-    $query = "UPDATE pembayaran SET status = 'Complete' WHERE id = $id";
-
     $total_bayar = $pembayaran['total'] - $pembayaran['dp'];
 
+    $kembalian = 0;
+
     if ($bayar == $total_bayar) {
-        mysqli_query($con, $query);
+        $pembayaran = true;
+    } elseif ($bayar > $total_bayar) {
+        $kembalian = $bayar - $total_bayar;
+        $_SESSION['kembalian'] = $kembalian;
+        $pembayaran = true;
     } else {
         return 0;
+    }
+
+    $query = "UPDATE pembayaran SET 
+                status = 'Complete',
+                bayar = '$bayar',
+                kembalian = '$kembalian'
+                WHERE id = $id";
+
+    if ($pembayaran) {
+        mysqli_query($con, $query);
     }
 
     return mysqli_affected_rows($con);

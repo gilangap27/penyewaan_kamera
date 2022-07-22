@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_admin'])) {
     header("Location: ./index.php");
 }
 
-$pendapatan = query("SELECT SUM(total) AS total FROM pembayaran")[0];
+$pendapatan = query("SELECT SUM(total) AS total FROM pembayaran WHERE status = 'Complete'")[0];
 $kamera = query("SELECT COUNT(*) AS total FROM product")[0];
 $pelanggan = query("SELECT COUNT(*) AS total FROM pembayaran")[0];
 $pending = query("SELECT COUNT(*) AS total FROM pembayaran WHERE status = 'Pending'")[0];
@@ -94,8 +94,8 @@ $pending = query("SELECT COUNT(*) AS total FROM pembayaran WHERE status = 'Pendi
 </div>
 
 <div class="container text-center bg-white p-5">
-    <h1>Welcome Admin!</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis molestiae vel autem quam cumque omnis nulla vitae illo ut possimus, debitis odit eius, cum eligendi laudantium? Ut nam alias vero, architecto, velit cum cumque sapiente quam aliquam exercitationem totam veritatis laborum eos accusamus iusto? Enim fugiat debitis repellat odio velit inventore officia. Aut nemo, harum ullam laborum, nobis nulla voluptates reprehenderit et, vitae natus officiis consequuntur! Vitae illo maxime praesentium optio reprehenderit unde tenetur odit debitis laborum deleniti ipsum blanditiis tempore laudantium laboriosam soluta fugiat sint labore, qui eveniet, consectetur amet voluptatum! Numquam beatae voluptates quasi adipisci, nisi distinctio nihil!</p>
+    <h1>Selamat Datang! Admin!</h1>
+    <p>Selamat! Kamu sudah login ke admin page website SewaKamera, kamu bisa menambahakan, mengedit, dan menghapus product baru, mengatur dan menghapus transaksi, melihat ulasan dari user, Di dashboard ini anda bisa melihat total pendapatan SewaKamera, Tital Customer, Total Kamera yang tersedia, dan Pending Request dari user</p>
 </div>
 
 <!-- Content Row -->
